@@ -1,0 +1,51 @@
+{
+    "ruleSearch": {
+        "checkKeyWord": "不许没收我的人籍",
+        "bookList": "li.burl",
+        "name": "h3.bname>a@text",
+        "author": "span.bauthor>a@text",
+        "kind": "span.lz@text&&span.l-time@text##(\\s\\d\\d:\\d\\d)##",
+        "wordCount": "span.size@text",
+        "lastChapter": "span.l-chapter@text",
+        "intro": "p.l-p2@html",
+        "coverUrl": "div.l-img>a>img@src",
+        "bookUrl": "h3.bname>a@href"
+    },
+    "ruleBookInfo": {
+        "name": "div.n-text>h1@text",
+        "author": "a.bauthor@text",
+        "kind": "a.nsort@text&&span.lz@text&&div.n-text>p:last-of-type@text##(更新:?|\\s\\d+:\\d+:\\d+)##",
+        "wordCount": "span.nsize@text",
+        "lastChapter": "div.n-text>p>a[href$=\".html\"]@text",
+        "intro": "#intro@html",
+        "coverUrl": "div.n-img>img@src",
+        "downloadUrls": "span.btn-solid>a@href",
+        "tocUrl": "<js>java.put(\"bookUrl\",baseUrl)</js>\nhttps://ixdzs8.com/novel/clist/,{\n    \"method\": \"POST\",\n    \"body\": \"bid={{baseUrl.split(\"/\")[4]}}\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}\n}"
+    },
+    "ruleToc": {
+        "chapterList": "$.data",
+        "chapterName": "$.title",
+        "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html"
+    },
+    "ruleContent": {
+        "content": "article.page-content>section>p:not(.abg)@html",
+        "replaceRegex": "##({{title.replace(/\\s*/g,\"\")}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)##",
+        "title": ""
+    },
+    "ruleReview": {},
+    "ruleExplore": {},
+    "bookSourceUrl": "https://ixdzs8.com/",
+    "bookSourceName": "爱下电子书",
+    "bookSourceType": 0,
+    "bookSourceGroup": "General",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "concurrentRate": "1/1000",
+    "bookSourceComment": "先更新标题，过段时间才更新正文；\n偶尔段落乱序，且不会修复；",
+    "searchUrl": "/bsearch?q={{key}}&page={{page}}",
+    "exploreUrl": "[\n    {\"title\": \"🍒🍒网站推荐🍒🍒\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"首页推荐\", \"url\": \"/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"完结作品\", \"url\": \"/end/?page={{page}}\"},\n    \n    {\"title\": \"🍎🍎排行榜单🍎🍎\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"日榜\", \"url\": \"/hot/day/?page={{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"月榜\", \"url\": \"/hot/month/?page={{page}}\"},\n    {\"title\": \"总榜\", \"url\": \"/hot/?page={{page}}\"},\n\n    {\"title\": \"🍅🍅小说分类🍅🍅\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻奇幻\", \"url\": \"/sort/1/index-0-0-0-{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"武侠小说\", \"url\": \"/sort/10/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"修真仙侠\", \"url\": \"/sort/2/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"都市青春\", \"url\": \"/sort/3/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"军事历史\", \"url\": \"/sort/4/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"网游竞技\", \"url\": \"/sort/5/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"科幻灵异\", \"url\": \"/sort/6/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"言情穿越\", \"url\": \"/sort/7/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"耽美同人\", \"url\": \"/sort/8/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"台言古言\", \"url\": \"/sort/9/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"其他小说\", \"url\": \"/sort/0/index-0-0-0-{{page}}.html\"}\n]",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "weight": 85,
+    "customOrder": 31
+}
