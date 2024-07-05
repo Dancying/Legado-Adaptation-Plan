@@ -1,0 +1,60 @@
+{
+    "ruleSearch": {
+        "checkKeyWord": "不许没收我的人籍",
+        "bookList": "#centerm>#content>table.grid>tbody>tr:not(tr:first-of-type)",
+        "name": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@text",
+        "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
+        "kind": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(6)@text&&#centerm>#content>table.grid>tbody>tr>td:nth-of-type(5)@text",
+        "wordCount": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(4)@text",
+        "lastChapter": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(2)>a@text",
+        "bookUrl": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@href",
+        "intro": "{{\"【该源搜索页无书籍简介和封面】\"}}"
+    },
+    "ruleBookInfo": {
+        "name": "span>h1@text",
+        "author": "{{result.match(/作\\S+\\s者：(\\S+)<\\/td>/)[1]}}",
+        "kind": "{{result.match(/类\\S+\\s别：(\\S+)<\\/td>/)[1]}}\n{{result.match(/文章状态：(\\S+)<\\/td>/)[1]}}\n{{result.match(/最后更新：(\\d+-?\\d+-?\\d+)<\\/td>/)[1]}}",
+        "wordCount": "{{result.match(/全文长度：(\\d+字)<\\/td>/)[1]}}",
+        "lastChapter": "tbody>tr>td>div>a@text",
+        "intro": "#content>table>tbody>tr:nth-of-type(4)>td>table>tbody>tr>td:nth-of-type(2)>div@textNodes",
+        "coverUrl": "#content>table>tbody>tr:nth-of-type(4)>td>table>tbody>tr>td:nth-of-type(2)>a>img@src",
+        "tocUrl": "table>caption>a@href"
+    },
+    "ruleToc": {
+        "chapterList": "div.centent>ul>li>a",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href",
+        "preUpdateJs": "",
+        "nextTocUrl": ""
+    },
+    "ruleContent": {
+        "content": "body@textNodes",
+        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)##",
+        "title": ""
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "intro": "{{\"【该源发现页无书籍简介和封面】\"}}",
+        "bookList": "#centerm>#content>table.grid>tbody>tr:not(tr:first-of-type)",
+        "name": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@text",
+        "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
+        "kind": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(6)@text&&#centerm>#content>table.grid>tbody>tr>td:nth-of-type(5)@text",
+        "wordCount": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(4)@text",
+        "lastChapter": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(2)>a@text",
+        "bookUrl": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@href"
+    },
+    "bookSourceUrl": "https://www.piaotia.com/",
+    "bookSourceType": 0,
+    "bookSourceName": "飘天文学",
+    "bookSourceGroup": "General",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "concurrentRate": "1/1000",
+    "bookSourceComment": "目标书籍更新快；\n详情页最新章节偶尔慢于目录页的最新章节；\n发现页和搜索页均无书籍封面和书籍简介；",
+    "searchUrl": "<js>cookie.removeCookie(baseUrl)</js>\n/modules/article/search.php, {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": \"searchtype=articlename&searchkey={{key}}&action=login&submit=%26%23160%3B%CB%D1%26%23160%3B%26%23160%3B%CB%F7%26%23160%3B&page={{page}}\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}\n}",
+    "exploreUrl": "[\n    {\"title\": \"📕该源发现和搜索均无简介和封面📕\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n\n    {\"title\": \"🎐🎐网站分类🎐🎐\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/booksort1/0/{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"武侠修真\", \"url\": \"/booksort2/0/{{page}}.html\"},\n    {\"title\": \"都市言情\", \"url\": \"/booksort3/0/{{page}}.html\"},\n    {\"title\": \"历史军事\", \"url\": \"/booksort4/0/{{page}}.html\"},\n    {\"title\": \"网游竞技\", \"url\": \"/booksort5/0/{{page}}.html\"},\n    {\"title\": \"科幻小说\", \"url\": \"/booksort6/0/{{page}}.html\"},\n    {\"title\": \"恐怖灵异\", \"url\": \"/booksort7/0/{{page}}.html\"},\n    {\"title\": \"同人漫画\", \"url\": \"/booksort8/0/{{page}}.html\"},\n    {\"title\": \"其他类型\", \"url\": \"/booksort9/0/{{page}}.html\"},\n    {\"title\": \"全本小说\", \"url\": \"/quanben/index.html?page={{page}}\"},\n    {\"title\": \"全部文章\", \"url\": \"/booksort/0/{{page}}.html\"}\n]",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "weight": 95,
+    "customOrder": 12
+}
