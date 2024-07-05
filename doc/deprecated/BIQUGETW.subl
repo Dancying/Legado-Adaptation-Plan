@@ -1,0 +1,67 @@
+
+
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+
+
+https://www.biquge.tw/search/?searchkey={{key}}&submit=
+
+
+<js>cookie.removeCookie(baseUrl)</js>/search/?searchkey={{key}}&submit=
+
+
+[
+    {"title": "以下内容需要 VPN 方可浏览", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "网站推荐", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "首页推荐", "url": "/", "style": {"layout_wrapBefore": true}},
+    {"title": "完本推荐", "url": "/wanben/{{page}}.html"},
+    {"title": "排行榜单", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "总点击榜", "url": "/top/allvisit/{{page}}.html", "style": {"layout_wrapBefore": true}},
+    {"title": "月点击榜", "url": "/top/monthvisit/{{page}}.html"},
+    {"title": "周点击榜", "url": "/top/weekvisit/{{page}}.html"},
+    {"title": "日点击榜", "url": "/top/dayvisit/{{page}}.html"},
+    {"title": "总字数榜", "url": "/top/size/{{page}}.html"},
+    {"title": "收藏数榜", "url": "/top/goodnum/{{page}}.html"},
+    {"title": "新发布榜", "url": "/top/postdate/{{page}}.html"},
+    {"title": "新更新榜", "url": "/top/lastupdate/{{page}}.html"},
+    {"title": "小说分类", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "玄幻魔法", "url": "/sort/xuanhuan/{{page}}.html", "style": {"layout_wrapBefore": true}},
+    {"title": "武侠修真", "url": "/sort/wuxia/{{page}}.html"},
+    {"title": "都市言情", "url": "/sort/dushi/{{page}}.html"},
+    {"title": "历史军事", "url": "/sort/lishi/{{page}}.html"},
+    {"title": "科幻灵异", "url": "/sort/kehuan/{{page}}.html"},
+    {"title": "游戏竞技", "url": "/sort/youxi/{{page}}.html"},
+    {"title": "女生耽美", "url": "/sort/nvsheng/{{page}}.html"},
+    {"title": "其他类型", "url": "/sort/qita/{{page}}.html"}
+]
+
+
+
+[
+    {"title": "❗️❗️以下内容需要 VPN 方可浏览❗️❗️", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+
+    {"title": "☘️☘️网站推荐☘️☘️", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "首页推荐", "url": "/", "style": {"layout_wrapBefore": true}},
+    {"title": "完本推荐", "url": "/wanben/{{page}}.html"},
+
+    {"title": "🌵🌵排行榜单🌵🌵", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "总点击榜", "url": "/top/allvisit/{{page}}.html", "style": {"layout_wrapBefore": true}},
+    {"title": "月点击榜", "url": "/top/monthvisit/{{page}}.html"},
+    {"title": "周点击榜", "url": "/top/weekvisit/{{page}}.html"},
+    {"title": "日点击榜", "url": "/top/dayvisit/{{page}}.html"},
+    {"title": "总字数榜", "url": "/top/size/{{page}}.html"},
+    {"title": "收藏数榜", "url": "/top/goodnum/{{page}}.html"},
+    {"title": "新发布榜", "url": "/top/postdate/{{page}}.html"},
+    {"title": "新更新榜", "url": "/top/lastupdate/{{page}}.html"},
+
+    {"title": "🎋🎋小说分类🎋🎋", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "玄幻魔法", "url": "/sort/xuanhuan/{{page}}.html", "style": {"layout_wrapBefore": true}},
+    {"title": "武侠修真", "url": "/sort/wuxia/{{page}}.html"},
+    {"title": "都市言情", "url": "/sort/dushi/{{page}}.html"},
+    {"title": "历史军事", "url": "/sort/lishi/{{page}}.html"},
+    {"title": "科幻灵异", "url": "/sort/kehuan/{{page}}.html"},
+    {"title": "游戏竞技", "url": "/sort/youxi/{{page}}.html"},
+    {"title": "女生耽美", "url": "/sort/nvsheng/{{page}}.html"},
+    {"title": "其他类型", "url": "/sort/qita/{{page}}.html"}
+]
+
+
