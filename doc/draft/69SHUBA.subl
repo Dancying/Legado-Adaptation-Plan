@@ -1,0 +1,106 @@
+
+
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+
+
+<js>cookie.removeCookie(baseUrl)</js>
+
+
+https://www.69shuba.pro/modules/article/search.php
+
+searchkey=%B2%BB%D0%ED%C3%BB%CA%D5%CE%D2%B5%C4%C8%CB%BC%AE&submit=Search
+
+
+searchkey={{key}}&submit=Search
+
+
+<js>cookie.removeCookie(baseUrl)</js>
+/modules/article/search.php, {
+    "method": "POST",
+    "charset": "gbk",
+    "body": "searchkey={{key}}&submit=Search",
+    "headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+}
+
+
+def get_explore_rule():
+    import re
+    import json
+    from src._69shuba_temp import res_html
+
+    rule_list = []
+    # 匹配规则需要更具 HTML 内容的修改而修改
+    a_list = re.findall(r'<a href="/novels/class/\d\d?.htm">\S\S\S\S</a>', res_html)
+    for i in a_list:
+        # print(i)
+        curr_title = re.findall(r'>(\S{2,4})</', i)[0]
+        curr_url = re.findall(r'href="(.*)">', i)[0]
+        curr_url = curr_url.replace("/novels", "/ajax_novels")
+        curr_url = curr_url.replace(".", "/{{page}}.")
+        rule_list.append({"title": curr_title, "url": curr_url})
+    for j in rule_list:
+        j_json = json.dumps(j, ensure_ascii=False)
+        print(j_json, end=',\n')
+
+
+if __name__ == '__main__':
+    get_explore_rule()
+
+
+
+[
+    {"title": "❗️❗️以下内容需要 VPN 方可浏览❗️❗️", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+
+    {"title": "🍀🍀排行页面🍀🍀", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "不限", "url": "/ajax_novels/weekvisit_0_0_{{page}}.htm", "style": {"layout_wrapBefore": true}},
+    {"title": "连载", "url": "/ajax_novels/weekvisit_0_2_{{page}}.htm"},
+    {"title": "全本", "url": "/ajax_novels/weekvisit_0_1_{{page}}.htm"},
+    {"title": "人气", "url": "/ajax_novels/weekvisit_0_0_{{page}}.htm"},
+    {"title": "推荐", "url": "/ajax_novels/allvote_0_0_{{page}}.htm"},
+    {"title": "新书", "url": "/ajax_novels/newhot_0_0_{{page}}.htm"},
+    {"title": "全部", "url": "/ajax_novels/weekvisit_0_0_{{page}}.htm"},
+    {"title": "玄幻魔法", "url": "/ajax_novels/weekvisit_1_0_{{page}}.htm"},
+    {"title": "修真武侠", "url": "/ajax_novels/weekvisit_2_0_{{page}}.htm"},
+    {"title": "言情小说", "url": "/ajax_novels/weekvisit_3_0_{{page}}.htm"},
+    {"title": "历史军事", "url": "/ajax_novels/weekvisit_4_0_{{page}}.htm"},
+    {"title": "游戏竞技", "url": "/ajax_novels/weekvisit_5_0_{{page}}.htm"},
+    {"title": "科幻空间", "url": "/ajax_novels/weekvisit_6_0_{{page}}.htm"},
+    {"title": "悬疑惊悚", "url": "/ajax_novels/weekvisit_7_0_{{page}}.htm"},
+    {"title": "同人小说", "url": "/ajax_novels/weekvisit_8_0_{{page}}.htm"},
+    {"title": "都市小说", "url": "/ajax_novels/weekvisit_9_0_{{page}}.htm"},
+    {"title": "官场职场", "url": "/ajax_novels/weekvisit_10_0_{{page}}.htm"},
+    {"title": "穿越时空", "url": "/ajax_novels/weekvisit_11_0_{{page}}.htm"},
+    {"title": "青春校园", "url": "/ajax_novels/weekvisit_12_0_{{page}}.htm"},
+    {"title": "其他小说", "url": "/ajax_novels/weekvisit_13_0_{{page}}.htm"},
+
+    {"title": "🌵🌵完本页面🌵🌵", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "全部分类", "url": "/ajax_novels/full/0/{{page}}.htm", "style": {"layout_wrapBefore": true}},
+    {"title": "言情小说", "url": "/ajax_novels/full/3/{{page}}.htm"},
+    {"title": "玄幻魔法", "url": "/ajax_novels/full/1/{{page}}.htm"},
+    {"title": "修真武侠", "url": "/ajax_novels/full/2/{{page}}.htm"},
+    {"title": "穿越时空", "url": "/ajax_novels/full/11/{{page}}.htm"},
+    {"title": "都市小说", "url": "/ajax_novels/full/9/{{page}}.htm"},
+    {"title": "历史军事", "url": "/ajax_novels/full/4/{{page}}.htm"},
+    {"title": "游戏竞技", "url": "/ajax_novels/full/5/{{page}}.htm"},
+    {"title": "科幻空间", "url": "/ajax_novels/full/6/{{page}}.htm"},
+    {"title": "悬疑惊悚", "url": "/ajax_novels/full/7/{{page}}.htm"},
+    {"title": "同人小说", "url": "/ajax_novels/full/8/{{page}}.htm"},
+    {"title": "官场职场", "url": "/ajax_novels/full/10/{{page}}.htm"},
+    {"title": "青春校园", "url": "/ajax_novels/full/12/{{page}}.htm"},
+
+    {"title": "🎋🎋分类页面🎋🎋", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "全部分类", "url": "/ajax_novels/class/0/{{page}}.htm", "style": {"layout_wrapBefore": true}},
+    {"title": "言情小说", "url": "/ajax_novels/class/3/{{page}}.htm"},
+    {"title": "玄幻魔法", "url": "/ajax_novels/class/1/{{page}}.htm"},
+    {"title": "修真武侠", "url": "/ajax_novels/class/2/{{page}}.htm"},
+    {"title": "穿越时空", "url": "/ajax_novels/class/11/{{page}}.htm"},
+    {"title": "都市小说", "url": "/ajax_novels/class/9/{{page}}.htm"},
+    {"title": "历史军事", "url": "/ajax_novels/class/4/{{page}}.htm"},
+    {"title": "游戏竞技", "url": "/ajax_novels/class/5/{{page}}.htm"},
+    {"title": "科幻空间", "url": "/ajax_novels/class/6/{{page}}.htm"},
+    {"title": "悬疑惊悚", "url": "/ajax_novels/class/7/{{page}}.htm"},
+    {"title": "同人小说", "url": "/ajax_novels/class/8/{{page}}.htm"},
+    {"title": "官场职场", "url": "/ajax_novels/class/10/{{page}}.htm"},
+    {"title": "青春校园", "url": "/ajax_novels/class/12/{{page}}.htm"}
+]
+

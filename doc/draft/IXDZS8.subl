@@ -1,0 +1,64 @@
+
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+
+https://ixdzs8.com/bsearch?q={{key}}&page={{page}}
+
+
+<js>java.put("bookUrl",baseUrl)</js>
+https://ixdzs8.com/novel/clist/,{
+    "method": "POST",
+    "body": "bid={{baseUrl.split("/")[4]}}",
+    "headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+}
+
+
+{{java.get("bookUrl")}}p{{$.ordernum}}.html
+
+article.page-content>section>p:not(.abg)@html
+
+
+首页推荐::/
+完结作品::/end/?page={{page}}
+
+每日榜单::/hot/day/?page={{page}}
+每月榜单::/hot/month/?page={{page}}
+全部榜单::/hot/?page={{page}}
+
+玄幻奇幻::/sort/1/index-0-0-0-{{page}}.html
+武侠小说::/sort/10/index-0-0-0-{{page}}.html
+修真仙侠::/sort/2/index-0-0-0-{{page}}.html
+都市青春::/sort/3/index-0-0-0-{{page}}.html
+军事历史::/sort/4/index-0-0-0-{{page}}.html
+
+网游竞技::/sort/5/index-0-0-0-{{page}}.html
+科幻灵异::/sort/6/index-0-0-0-{{page}}.html
+言情穿越::/sort/7/index-0-0-0-{{page}}.html
+耽美同人::/sort/8/index-0-0-0-{{page}}.html
+台言古言::/sort/9/index-0-0-0-{{page}}.html
+其他小说::/sort/0/index-0-0-0-{{page}}.html
+
+
+[
+    {"title": "🍒🍒网站推荐🍒🍒", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "首页推荐", "url": "/", "style": {"layout_wrapBefore": true}},
+    {"title": "完结作品", "url": "/end/?page={{page}}"},
+    
+    {"title": "🍎🍎排行榜单🍎🍎", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "日榜", "url": "/hot/day/?page={{page}}", "style": {"layout_wrapBefore": true}},
+    {"title": "月榜", "url": "/hot/month/?page={{page}}"},
+    {"title": "总榜", "url": "/hot/?page={{page}}"},
+
+    {"title": "🍅🍅小说分类🍅🍅", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "玄幻奇幻", "url": "/sort/1/index-0-0-0-{{page}}.html", "style": {"layout_wrapBefore": true}},
+    {"title": "武侠小说", "url": "/sort/10/index-0-0-0-{{page}}.html"},
+    {"title": "修真仙侠", "url": "/sort/2/index-0-0-0-{{page}}.html"},
+    {"title": "都市青春", "url": "/sort/3/index-0-0-0-{{page}}.html"},
+    {"title": "军事历史", "url": "/sort/4/index-0-0-0-{{page}}.html"},
+    {"title": "网游竞技", "url": "/sort/5/index-0-0-0-{{page}}.html"},
+    {"title": "科幻灵异", "url": "/sort/6/index-0-0-0-{{page}}.html"},
+    {"title": "言情穿越", "url": "/sort/7/index-0-0-0-{{page}}.html"},
+    {"title": "耽美同人", "url": "/sort/8/index-0-0-0-{{page}}.html"},
+    {"title": "台言古言", "url": "/sort/9/index-0-0-0-{{page}}.html"},
+    {"title": "其他小说", "url": "/sort/0/index-0-0-0-{{page}}.html"}
+]
+
