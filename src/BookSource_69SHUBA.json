@@ -1,0 +1,57 @@
+{
+    "ruleSearch": {
+        "bookList": "div.newbox>ul>li",
+        "checkKeyWord": "不许没收我的人籍",
+        "name": "div.newbox>ul>li>div.newnav>h3@text",
+        "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
+        "lastChapter": "div.zxzj>p@text##最近章节##",
+        "intro": "ol.ellipsis_2@html",
+        "coverUrl": "a.imgbox>img@data-src",
+        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href"
+    },
+    "ruleBookInfo": {
+        "name": "div.booknav2>h1@text",
+        "author": "div.booknav2>p:first-of-type>a@text",
+        "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+.*\\s\\|\\s)##",
+        "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##",
+        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text",
+        "intro": "div.navtxt>p:first-of-type@html",
+        "coverUrl": "div.bookimg2>img@src",
+        "tocUrl": "a.btn.more-btn@href"
+    },
+    "ruleToc": {
+        "chapterList": "#catalog>ul>li",
+        "chapterName": "#catalog>ul>li>a@text",
+        "chapterUrl": "#catalog>ul>li>a@href"
+    },
+    "ruleContent": {
+        "content": "div.txtnav@textNodes",
+        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)"
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "bookList": "body>li",
+        "name": "div.newnav>h3@text",
+        "author": "div.labelbox>label:first-of-type@text",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text",
+        "lastChapter": "div.zxzj>p@textNodes",
+        "intro": "ol.ellipsis_2@text",
+        "coverUrl": "img@data-src",
+        "bookUrl": "li>a@href"
+    },
+    "bookSourceUrl": "https://www.69shuba.pro/",
+    "bookSourceType": 0,
+    "bookSourceName": "69书吧",
+    "bookSourceGroup": "VPN",
+    "bookSourceComment": "目标书籍更新快；\n偶尔段落乱序，但后续会及时修复；\n书籍种类丰富、数量多，可作为发现源；\n需要 VPN 访问；",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "concurrentRate": "1/1000",
+    "searchUrl": "<js>cookie.removeCookie(baseUrl)</js>\n/modules/article/search.php, {\n    \"method\": \"POST\",\n    \"charset\": \"gbk\",\n    \"body\": \"searchkey={{key}}&submit=Search\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}\n}",
+    "exploreUrl": "[\n    {\"title\": \"❗️❗️以下内容需要 VPN 方可浏览❗️❗️\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n\n    {\"title\": \"🍀🍀排行页面🍀🍀\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"不限\", \"url\": \"/ajax_novels/weekvisit_0_0_{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"连载\", \"url\": \"/ajax_novels/weekvisit_0_2_{{page}}.htm\"},\n    {\"title\": \"全本\", \"url\": \"/ajax_novels/weekvisit_0_1_{{page}}.htm\"},\n    {\"title\": \"人气\", \"url\": \"/ajax_novels/weekvisit_0_0_{{page}}.htm\"},\n    {\"title\": \"推荐\", \"url\": \"/ajax_novels/allvote_0_0_{{page}}.htm\"},\n    {\"title\": \"新书\", \"url\": \"/ajax_novels/newhot_0_0_{{page}}.htm\"},\n    {\"title\": \"全部\", \"url\": \"/ajax_novels/weekvisit_0_0_{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/ajax_novels/weekvisit_1_0_{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/ajax_novels/weekvisit_2_0_{{page}}.htm\"},\n    {\"title\": \"言情小说\", \"url\": \"/ajax_novels/weekvisit_3_0_{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/ajax_novels/weekvisit_4_0_{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/ajax_novels/weekvisit_5_0_{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/ajax_novels/weekvisit_6_0_{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/ajax_novels/weekvisit_7_0_{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/ajax_novels/weekvisit_8_0_{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/ajax_novels/weekvisit_9_0_{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/ajax_novels/weekvisit_10_0_{{page}}.htm\"},\n    {\"title\": \"穿越时空\", \"url\": \"/ajax_novels/weekvisit_11_0_{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/ajax_novels/weekvisit_12_0_{{page}}.htm\"},\n    {\"title\": \"其他小说\", \"url\": \"/ajax_novels/weekvisit_13_0_{{page}}.htm\"},\n\n    {\"title\": \"🌵🌵完本页面🌵🌵\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/ajax_novels/full/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/ajax_novels/full/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/ajax_novels/full/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/ajax_novels/full/2/{{page}}.htm\"},\n    {\"title\": \"穿越时空\", \"url\": \"/ajax_novels/full/11/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/ajax_novels/full/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/ajax_novels/full/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/ajax_novels/full/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/ajax_novels/full/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/ajax_novels/full/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/ajax_novels/full/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/ajax_novels/full/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/ajax_novels/full/12/{{page}}.htm\"},\n\n    {\"title\": \"🎋🎋分类页面🎋🎋\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/ajax_novels/class/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/ajax_novels/class/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/ajax_novels/class/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/ajax_novels/class/2/{{page}}.htm\"},\n    {\"title\": \"穿越时空\", \"url\": \"/ajax_novels/class/11/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/ajax_novels/class/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/ajax_novels/class/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/ajax_novels/class/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/ajax_novels/class/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/ajax_novels/class/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/ajax_novels/class/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/ajax_novels/class/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/ajax_novels/class/12/{{page}}.htm\"}\n]",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "weight": 95,
+    "customOrder": 11
+}
