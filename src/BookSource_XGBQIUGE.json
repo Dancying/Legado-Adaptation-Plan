@@ -1,0 +1,60 @@
+{
+    "ruleSearch": {
+        "checkKeyWord": "不许没收我的人籍",
+        "bookList": "div.item",
+        "name": "div.item>dl>dt>a@text",
+        "author": "div.item>dl>div.btm>a@text",
+        "intro": "div.item>dl>dd@html",
+        "coverUrl": "div.item>div.image>a>img@data-original",
+        "bookUrl": "div.item>div.image>a@href",
+        "kind": "div.item>dl>div.btm>em:last-of-type@text",
+        "wordCount": "div.item>dl>div.btm>em:first-of-type@text",
+        "lastChapter": "{{@@div.item>dl>div.btm>em:last-of-type@text}}{{\", 【该源搜索页不展示最新章节】\"}}"
+    },
+    "ruleBookInfo": {
+        "name": "#info>h1@text",
+        "author": "#info>p:first-of-type>a@text",
+        "wordCount": "#info>p:nth-of-type(3)@text##字数：##",
+        "lastChapter": "#info>p:nth-of-type(6)>a@text",
+        "intro": "#intro@html",
+        "coverUrl": "#fmimg>img@data-original",
+        "kind": "#info>p:nth-of-type(5)@text##(\\s\\|\\s\\d+\\s\\S?字\\s\\|\\s|\\s\\|\\s)##,",
+        "downloadUrls": "div.readbtn>a:last-of-type@href",
+        "tocUrl": "{{baseUrl.replace(\"biquge_\",\"indexlist/\")}}"
+    },
+    "ruleToc": {
+        "chapterList": "#content_1>a",
+        "chapterName": "#content_1>a>dd@text",
+        "chapterUrl": "#content_1>a@href",
+        "nextTocUrl": "#list>dl>dt:last-of-type>div>#indexselect>option@value"
+    },
+    "ruleContent": {
+        "content": "#booktxt>p@html",
+        "nextContentUrl": "div.bottem2>a[rel=\"next\"]@href",
+        "replaceRegex": "##({{title}}\\s*|\\s*\\(本章未?完?\\)?\\S*继?续?阅?读?\\S*\\s*)##"
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "bookList": "#newscontent>div.l>ul>li",
+        "name": "#newscontent>div.l>ul>li>span:nth-of-type(2)>a@text",
+        "author": "#newscontent>div.l>ul>li>span:nth-of-type(4)@text",
+        "lastChapter": "#newscontent>div.l>ul>li>span:nth-of-type(3)>a@text",
+        "kind": "#newscontent>div.l>ul>li>span:nth-of-type(1)@text&&#newscontent>div.l>ul>li>span:nth-of-type(5)@text",
+        "bookUrl": "#newscontent>div.l>ul>li>span:nth-of-type(2)>a@href",
+        "intro": "{{\"【该源发现页无书籍简介和封面】\"}}"
+    },
+    "bookSourceUrl": "http://www.xgbqiuge.com/",
+    "bookSourceName": "笔趣阁XG",
+    "bookSourceType": 0,
+    "bookSourceComment": "目标书籍更新快；\n偶尔会段落乱序，但后续会修复；\n网站经常抽风；\n搜索书籍功能很慢；\n发现页无书籍封面和书籍简介；",
+    "bookSourceGroup": "General",
+    "concurrentRate": "1/1000",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "searchUrl": "<js>\nres = java.get(baseUrl,{});\njava.put(\"searchUrl\",baseUrl + res.body().match(/search\\S*\\.html/)[0]);\ncookie.removeCookie(baseUrl);\n</js>\n{{java.get(\"searchUrl\")}}?searchkey={{key}}",
+    "enabled": true,
+    "enabledExplore": true,
+    "weight": 90,
+    "customOrder": 21,
+    "enabledCookieJar": true,
+    "exploreUrl": "[\n    {\"title\": \"📕该源发现页无简介和封面📕\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n\n    {\"title\": \"📚️📚️网站分类📚️📚️\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻\", \"url\": \"/category/xuanhuanxiaoshuo/{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"修真\", \"url\": \"/category/xiuzhenxiaoshuo/{{page}}.html\"},\n    {\"title\": \"都市\", \"url\": \"/category/dushixiaoshuo/{{page}}.html\"},\n    {\"title\": \"穿越\", \"url\": \"/category/chuanyuexiaoshuo/{{page}}.html\"},\n    {\"title\": \"网游\", \"url\": \"/category/wangyouxiaoshuo/{{page}}.html\"},\n    {\"title\": \"科幻\", \"url\": \"/category/kehuanxiaoshuo/{{page}}.html\"},\n    {\"title\": \"其他\", \"url\": \"/category/qitaxiaoshuo/{{page}}.html\"},\n    {\"title\": \"全本\", \"url\": \"/quanben/category/{{page}}.html\"}\n]"
+}
