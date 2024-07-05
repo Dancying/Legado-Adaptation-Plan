@@ -114,11 +114,11 @@ Legado 软件中书源的制作有 **70%** 以上的输入框需要使用到规�
 #### URL 的 GET 请求
 
 - 格式一：直接填写 URL 地址  
-    ```json
+    ```
     https://www.baidu.com
     ```
 - 格式二：填写 URL 地址，后接字符编码、请求头等内容  
-    ```json
+    ```
     https://www.baidu.com, {
         "charset": "gbk",
         "webView": true,
@@ -131,7 +131,7 @@ Legado 软件中书源的制作有 **70%** 以上的输入框需要使用到规�
 #### URL 的 POST 请求
 
 - 格式一：填写 URL 地址，后接字符编码、请求体、请求头等内容  
-    ```json
+    ```
     https://www.baidu.com, {
         "charset": "gbk",
         "method": "POST",
