@@ -1,0 +1,18 @@
+
+
+======================================================================================================================================================================
+
+百度汉语
+
+https://hanyu.baidu.com/s?wd={{key}}&ptype=zici
+
+<js>
+var doc = org.jsoup.Jsoup.parse(result);
+doc.select(".title.disactive,.baike-feedback,a[href],#basicmean-wrapper>div[style],#detailmean-wrapper>div[style],#baike-wrapper>div:last-of-type").remove();
+doc.select("#basicmean-wrapper,#detailmean-wrapper,#baike-wrapper").html();
+</js>
+
+
+
+======================================================================================================================================================================
+
