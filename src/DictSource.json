@@ -1,0 +1,3 @@
+[
+    {"enabled": true, "name": "百度汉语", "showRule": "<js>\r\nvar doc = org.jsoup.Jsoup.parse(result);\r\ndoc.select(\".title.disactive,.baike-feedback,a[href],#basicmean-wrapper>div[style],#detailmean-wrapper>div[style],#baike-wrapper>div:last-of-type\").remove();\r\ndoc.select(\"#basicmean-wrapper,#detailmean-wrapper,#baike-wrapper\").html();\r\n</js>", "sortNumber": 0, "urlRule": "https://hanyu.baidu.com/s?wd={{key}}&ptype=zici"}
+]
