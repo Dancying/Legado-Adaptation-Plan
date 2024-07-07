@@ -48,7 +48,7 @@
     "bookSourceComment": "书籍数据来自于起点官网；\n部分章节需要付费阅读；\n书籍种类丰富、数量多，主要作为发现源；",
     "concurrentRate": "1/1000",
     "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
-    "searchUrl": "/so/{{key}}.html?page={{page}}",
+    "searchUrl": "/so/{{key}}.html?page={{page}}, {\"webView\": true}",
     "enabled": true,
     "enabledExplore": true,
     "enabledCookieJar": true,
