@@ -5,7 +5,7 @@
         "name": "div.newbox>ul>li>div.newnav>h3@text",
         "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
         "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
-        "lastChapter": "div.zxzj>p@text##最近章节##",
+        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}",
         "intro": "ol.ellipsis_2@html",
         "coverUrl": "a.imgbox>img@data-src",
         "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href"
@@ -26,8 +26,8 @@
         "chapterUrl": "#catalog>ul>li>a@href"
     },
     "ruleContent": {
-        "content": "div.txtnav@textNodes",
-        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)"
+        "content": "div.txtnav@html",
+        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*|\\d+-\\d+-\\d+\\s*)##"
     },
     "ruleReview": {},
     "ruleExplore": {
@@ -40,7 +40,7 @@
         "coverUrl": "img@data-src",
         "bookUrl": "li>a@href"
     },
-    "bookSourceUrl": "https://www.69shuba.pro/",
+    "bookSourceUrl": "https://69shuba.cx/",
     "bookSourceType": 0,
     "bookSourceName": "69书吧",
     "bookSourceGroup": "VPN",
