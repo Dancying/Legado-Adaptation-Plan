@@ -48,8 +48,6 @@ https://www.piaotia.com/modules/article/search.php?searchtype=articlename&search
 
 
 [
-    {"title": "📕该源发现和搜索均无简介和封面📕", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
-
     {"title": "🎐🎐网站分类🎐🎐", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
     {"title": "玄幻魔法", "url": "/booksort1/0/{{page}}.html", "style": {"layout_wrapBefore": true}},
     {"title": "武侠修真", "url": "/booksort2/0/{{page}}.html"},

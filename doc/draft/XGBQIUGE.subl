@@ -50,8 +50,6 @@ cookie.removeCookie(baseUrl);
 
 
 [
-    {"title": "📕该源发现页无简介和封面📕", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
-
     {"title": "📚️📚️网站分类📚️📚️", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
     {"title": "玄幻", "url": "/category/xuanhuanxiaoshuo/{{page}}.html", "style": {"layout_wrapBefore": true}},
     {"title": "修真", "url": "/category/xiuzhenxiaoshuo/{{page}}.html"},
