@@ -24,8 +24,6 @@ https://www.23qb.com/search.html?searchkey={{key}}
 
 
 [
-    {"title": "📕该源发现页无简介和最新章节📕", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
-
     {"title": "🍻🍻网站分类🍻🍻", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
     {"title": "言情小说", "url": "/book/lastupdate_0_1_0_0_0_0_0_{{page}}_0.html", "style": {"layout_wrapBefore": true}},
     {"title": "都市小说", "url": "/book/lastupdate_0_2_0_0_0_0_0_{{page}}_0.html"},
