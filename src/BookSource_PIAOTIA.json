@@ -30,7 +30,7 @@
     },
     "ruleContent": {
         "content": "body@textNodes",
-        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)##",
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章完\\)?)##",
         "title": ""
     },
     "ruleReview": {},

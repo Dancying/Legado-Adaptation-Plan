@@ -15,19 +15,19 @@
         "author": "div.booknav2>p:first-of-type>a@text",
         "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+\\.?\\d*万?字?\\s?\\|\\s?)##",
         "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##",
-        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text",
+        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text##(^\\d+\\.?)##",
         "intro": "div.content>p@html",
         "coverUrl": "<js>\nlet bookId = baseUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.shucdn.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "tocUrl": "a.btn.more-btn@href"
     },
     "ruleToc": {
         "chapterList": "-#catalog>ul>li",
-        "chapterName": "#catalog>ul>li>a@text",
+        "chapterName": "#catalog>ul>li>a@text##(^\\d+\\.?)##",
         "chapterUrl": "#catalog>ul>li>a@href"
     },
     "ruleContent": {
         "content": "div.txtnav@html",
-        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*|\\d+-\\d+-\\d+\\s*)##"
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章完\\)?|\\d+-\\d+-\\d+)##"
     },
     "ruleReview": {},
     "ruleExplore": {

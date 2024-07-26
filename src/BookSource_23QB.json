@@ -27,7 +27,7 @@
     "ruleContent": {
         "content": "div.article-content@html",
         "title": "",
-        "replaceRegex": "##({{title}}\\s*|\\s*\\(?本章未?完\\)?\\S*\\s*)##",
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章完\\)?)##",
         "sourceRegex": ""
     },
     "ruleReview": {},

@@ -31,7 +31,7 @@
     "ruleContent": {
         "content": "#booktxt>p@html",
         "nextContentUrl": "div.bottem2>a[rel=\"next\"]@href",
-        "replaceRegex": "##({{title}}\\s*|\\s*\\(本章未?完?\\)?\\S*继?续?阅?读?\\S*\\s*)##"
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章未?完\\)?\\S*\\s*)##"
     },
     "ruleReview": {},
     "ruleExplore": {

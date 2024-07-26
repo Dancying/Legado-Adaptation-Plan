@@ -6,7 +6,7 @@
         "author": "span.bauthor>a@text",
         "kind": "span.lz@text&&span.l-time@text##(\\s\\d\\d:\\d\\d)##",
         "wordCount": "span.size@text",
-        "lastChapter": "span.l-chapter@text",
+        "lastChapter": "span.l-chapter@text##(^\\d+\\.?)##",
         "intro": "p.l-p2@html",
         "coverUrl": "div.l-img>a>img@src",
         "bookUrl": "h3.bname>a@href"
@@ -16,7 +16,7 @@
         "author": "a.bauthor@text",
         "kind": "a.nsort@text&&span.lz@text&&div.n-text>p:last-of-type@text##(更新:?|\\s\\d+:\\d+:\\d+)##",
         "wordCount": "span.nsize@text",
-        "lastChapter": "div.n-text>p>a[href$=\".html\"]@text",
+        "lastChapter": "div.n-text>p>a[href$=\".html\"]@text##(^\\d+\\.?)##",
         "intro": "#intro@html",
         "coverUrl": "div.n-img>img@src",
         "downloadUrls": "span.btn-solid>a@href",
@@ -24,12 +24,12 @@
     },
     "ruleToc": {
         "chapterList": "$.data",
-        "chapterName": "$.title",
+        "chapterName": "$.title##(^\\d+\\.?)##",
         "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html"
     },
     "ruleContent": {
         "content": "article.page-content>section>p:not(.abg)@html",
-        "replaceRegex": "##({{title.replace(/\\s*/g,\"\")}}\\s*|\\s*\\(?本章完?\\)?\\S*\\s*)##",
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章完\\)?|\\s*更新\\S*\\d+-\\d+-\\d+\\s+)##",
         "title": ""
     },
     "ruleReview": {},
