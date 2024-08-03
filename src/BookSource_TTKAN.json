@@ -1,0 +1,56 @@
+{
+    "ruleSearch": {
+        "checkKeyWord": "不许没收我的人籍",
+        "bookList": "div[class=\"pure-u-1-1 pure-u-xl-1-3 pure-u-lg-1-3 pure-u-md-1-2 novel_cell\"]",
+        "name": "h3@text",
+        "author": "ul>li:nth-of-type(2)@text##(作者：?:?\\s*)##",
+        "intro": "ul>li:last-of-type@html##(简介：?:?\\s*)##",
+        "coverUrl": "amp-img@src",
+        "bookUrl": "ul>li:first-of-type>a@href",
+        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}"
+    },
+    "ruleBookInfo": {
+        "name": "div[class=\"pure-u-xl-5-6 pure-u-lg-5-6 pure-u-md-2-3 pure-u-1-2\"]>ul>li:first-of-type>h1@text",
+        "author": "div[class=\"pure-u-xl-5-6 pure-u-lg-5-6 pure-u-md-2-3 pure-u-1-2\"]>ul>li:nth-of-type(2)>a@text",
+        "kind": "div[class=\"pure-u-xl-5-6 pure-u-lg-5-6 pure-u-md-2-3 pure-u-1-2\"]>ul>li:nth-of-type(3)@text&&div[class=\"pure-u-xl-5-6 pure-u-lg-5-6 pure-u-md-2-3 pure-u-1-2\"]>ul>li:nth-of-type(4)@text&&div.near_chapter>time@text##(类别：?:?|状态：?:?)##",
+        "lastChapter": "<js>\nlet bookId = baseUrl.split(\"/\").slice(-1)[0];\nlet chapterList = java.ajax(`https://ttkan.co/api/nq/amp_novel_chapters?novel_id=${bookId}`);\njava.put(\"bookId\",bookId);\njava.put(\"chapterList\",chapterList);\nchapterList;\n</js>\n$.items[-1].chapter_name",
+        "intro": "div.description>div>p@html",
+        "coverUrl": "div[class=\"pure-u-xl-1-6 pure-u-lg-1-6 pure-u-md-1-3 pure-u-1-2\"]>a>amp-img@src##(\\?\\S*)##",
+        "tocUrl": ""
+    },
+    "ruleToc": {
+        "chapterList": "<js>java.get(\"chapterList\")</js>$.items",
+        "chapterName": "$.chapter_name##(^\\d+\\.?)##",
+        "chapterUrl": "https://cn.bg3.co/novel/pagea/{{java.get(\"bookId\")}}_{{$.chapter_id}}.html"
+    },
+    "ruleContent": {
+        "title": "div.title>h1@text",
+        "content": "div.content>p@html",
+        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\s*\\(?本章完\\)?\\s*)##"
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "bookList": "$.items",
+        "name": "$.name",
+        "author": "$.author",
+        "kind": "$.type\n<js>\nlet typeName = {\"lianzai\":\"连载\",\"suixuan\":\"随选\",\"xuanhuan\":\"玄幻\",\"dushi\":\"都市\",\"xianxia\":\"仙侠\",\"gudaiyanqing\":\"言情\",\"chuanyuechongsheng\":\"穿越\",\"youxi\":\"游戏\",\"kehuan\":\"科幻\",\"xuanyi\":\"悬疑\",\"lingyi\":\"灵异\",\"lishi\":\"历史\",\"qingchun\":\"青春\",\"junshi\":\"军事\",\"jingji\":\"竞技\",\"yanqing\":\"现言\",\"qita\":\"其它\"};\ntypeName[result[0]];\n</js>",
+        "intro": "$.description",
+        "coverUrl": "https://static.ttkan.co/cover/{{$.topic_img}}",
+        "bookUrl": "https://cn.ttkan.co/novel/chapters/{{$.novel_id}}",
+        "lastChapter": "{{\"【该源发现页无最新章节信息】\"}}"
+    },
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://cn.ttkan.co/",
+    "bookSourceName": "天天看小说",
+    "concurrentRate": "1/1000",
+    "header": "{\"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36\"}",
+    "searchUrl": "/novel/search?q={{key}}",
+    "exploreUrl": "[\n    {\"title\": \"🍇🍇网站分类🍇🍇\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"连载\", \"url\": \"/api/nq/amp_novel_list?type=lianzai&page={{page}}&language=cn\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"随选\", \"url\": \"/api/nq/amp_novel_list?type=suixuan&page={{page}}&language=cn\"},\n    {\"title\": \"玄幻\", \"url\": \"/api/nq/amp_novel_list?type=xuanhuan&page={{page}}&language=cn\"},\n    {\"title\": \"都市\", \"url\": \"/api/nq/amp_novel_list?type=dushi&page={{page}}&language=cn\"},\n    {\"title\": \"仙侠\", \"url\": \"/api/nq/amp_novel_list?type=xianxia&page={{page}}&language=cn\"},\n    {\"title\": \"言情\", \"url\": \"/api/nq/amp_novel_list?type=gudaiyanqing&page={{page}}&language=cn\"},\n    {\"title\": \"穿越\", \"url\": \"/api/nq/amp_novel_list?type=chuanyuechongsheng&page={{page}}&language=cn\"},\n    {\"title\": \"游戏\", \"url\": \"/api/nq/amp_novel_list?type=youxi&page={{page}}&language=cn\"},\n    {\"title\": \"科幻\", \"url\": \"/api/nq/amp_novel_list?type=kehuan&page={{page}}&language=cn\"},\n    {\"title\": \"悬疑\", \"url\": \"/api/nq/amp_novel_list?type=xuanyi&page={{page}}&language=cn\"},\n    {\"title\": \"灵异\", \"url\": \"/api/nq/amp_novel_list?type=lingyi&page={{page}}&language=cn\"},\n    {\"title\": \"历史\", \"url\": \"/api/nq/amp_novel_list?type=lishi&page={{page}}&language=cn\"},\n    {\"title\": \"青春\", \"url\": \"/api/nq/amp_novel_list?type=qingchun&page={{page}}&language=cn\"},\n    {\"title\": \"军事\", \"url\": \"/api/nq/amp_novel_list?type=junshi&page={{page}}&language=cn\"},\n    {\"title\": \"竞技\", \"url\": \"/api/nq/amp_novel_list?type=jingji&page={{page}}&language=cn\"},\n    {\"title\": \"现言\", \"url\": \"/api/nq/amp_novel_list?type=yanqing&page={{page}}&language=cn\"},\n    {\"title\": \"其它\", \"url\": \"/api/nq/amp_novel_list?type=qita&page={{page}}&language=cn\"}\n]",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "weight": 90,
+    "customOrder": 22,
+    "bookSourceGroup": "VPN",
+    "bookSourceComment": "目标书籍更新较快；\n简中部分目录不全，故使用繁中目录；\n偶尔段落乱序，且不会修复；\n正文页需要使用VPN访问；"
+}
