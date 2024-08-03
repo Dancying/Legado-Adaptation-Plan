@@ -1,7 +1,7 @@
 {
     "ruleSearch": {
         "checkKeyWord": "不许没收我的人籍",
-        "bookList": "#result-list>div.book-img-text>ul>li",
+        "bookList": "<js>\nif (!result.includes(\"result-list\")) {java.ajax(`${baseUrl},${JSON.stringify({\"webView\": true})}`)} else {result}\nif (result.includes(\"没有输入有效关键词\")) {\"\"}\n</js>\n#result-list>div.book-img-text>ul>li",
         "name": "h3.book-info-title>a@text",
         "bookUrl": "h3.book-info-title>a@href",
         "author": "p.author>a:first-of-type@text",
