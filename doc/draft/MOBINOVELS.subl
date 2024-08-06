@@ -1,0 +1,65 @@
+
+{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"}
+
+
+https://mobinovels.com/?s={{key}}&paged={{page}}
+
+
+<js>result.match(/作者：<\/strong>(\S+)<\/span>/)[1]</js>
+
+
+h1[class="post-title entry-title"]>a@text<js>String(result).match(/\[.+?\]/g)</js>##(\[|\]|{{book.author}})##
+
+
+div.wp-block-group>div>p@html<js>result.substr(result.indexOf("故事简介"))</js>##(故事简介\S*\s*)##
+
+
+{{"卷数："}}{{@@tbody>tr>td:first-of-type@text}}
+
+
+<js>`
+该源需手动下载书籍
+以下为 EPUB 书籍下载地址
+${baseUrl}
+资源密码均为 6195
+PS: 阅读菜单界面，书源名称旁的链接可直达
+`</js>
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+[
+    {"title": "🍈🍈网站推荐🍈🍈", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "首页", "url": "/page/{{page}}", "style": {"layout_wrapBefore": true}},
+    {"title": "连载中", "url": "/topics/continued/page/{{page}}"},
+    {"title": "已完结", "url": "/topics/end/page/{{page}}"},
+    {"title": "动画化", "url": "/topics/animated/page/{{page}}"},
+
+    {"title": "🍊🍊动画年份🍊🍊", "style": {"layout_flexGrow": 1, "layout_wrapBefore": true}},
+    {"title": "2023年", "url": "/topics/animated/in-2023/page/{{page}}", "style": {"layout_wrapBefore": true}},
+    {"title": "2022年", "url": "/topics/animated/in-2022/page/{{page}}"},
+    {"title": "2021年", "url": "/topics/animated/in-2021/page/{{page}}"},
+    {"title": "2020年", "url": "/topics/animated/in-2020/page/{{page}}"},
+    {"title": "2019年", "url": "/topics/animated/in-2019/page/{{page}}"},
+    {"title": "2018年", "url": "/topics/animated/in-2018/page/{{page}}"},
+    {"title": "2017年", "url": "/topics/animated/in-2017/page/{{page}}"},
+    {"title": "2016年", "url": "/topics/animated/in-2016/page/{{page}}"},
+    {"title": "2015年", "url": "/topics/animated/in-2015/page/{{page}}"},
+    {"title": "2014年", "url": "/topics/animated/in-2014/page/{{page}}"},
+    {"title": "2013年", "url": "/topics/animated/in-2013/page/{{page}}"},
+    {"title": "2012年", "url": "/topics/animated/in-2012/page/{{page}}"},
+    {"title": "2011年", "url": "/topics/animated/in-2011/page/{{page}}"},
+    {"title": "2010年", "url": "/topics/animated/in-2010/page/{{page}}"},
+    {"title": "2009年", "url": "/topics/animated/in-2009/page/{{page}}"},
+    {"title": "2008年", "url": "/topics/animated/in-2008/page/{{page}}"},
+    {"title": "2007年", "url": "/topics/animated/in-2007/page/{{page}}"},
+    {"title": "2006年", "url": "/topics/animated/in-2006/page/{{page}}"},
+    {"title": "2005年", "url": "/topics/animated/in-2005/page/{{page}}"},
+    {"title": "2003年", "url": "/topics/animated/in-2003/page/{{page}}"},
+    {"title": "2002年", "url": "/topics/animated/in-2002/page/{{page}}"}
+]
+
+
