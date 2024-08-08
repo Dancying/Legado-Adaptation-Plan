@@ -27,7 +27,7 @@
     },
     "ruleContent": {
         "content": "div.txtnav@html",
-        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\s\\S*{{title.substr(-1)}}\\S*\\s+|\\(?本章完\\)?|\\d+-\\d+-\\d+)##"
+        "replaceRegex": "<js>\nresult = result.replace(/.*\\n/,\"\").replace(/.*\\n/,\"\").replace(/\\s+?\\S本章完\\S\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
     },
     "ruleReview": {},
     "ruleExplore": {
