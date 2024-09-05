@@ -13,15 +13,7 @@ searchkey=%B2%BB%D0%ED%C3%BB%CA%D5%CE%D2%B5%C4%C8%CB%BC%AE&submit=Search
 
 searchkey={{key}}&submit=Search
 
-
-<js>cookie.removeCookie(baseUrl)</js>
-/modules/article/search.php, {
-    "method": "POST",
-    "charset": "gbk",
-    "body": "searchkey={{key}}&submit=Search",
-    "headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
-}
-
+------------------------------------------------------------------------------------------------------------------------------------
 
 def get_explore_rule():
     import re
@@ -47,6 +39,7 @@ if __name__ == '__main__':
     get_explore_rule()
 
 
+------------------------------------------------------------------------------------------------------------------------------------
 
 
 [
@@ -94,7 +87,7 @@ if __name__ == '__main__':
 ]
 
 
-
+------------------------------------------------------------------------------------------------------------------------------------
 
 <js>
 let bookUrl = result.select("a:first-of-type").attr("href");
@@ -105,7 +98,6 @@ imageBaseUrl + imageDetailUrl;
 </js>
 
 
-
 <js>
 let bookId = baseUrl.match(/\/(\d+)\.htm/)[1];
 let imageBaseUrl = "https://cdn.shucdn.com/files/article/image/";
@@ -113,4 +105,31 @@ let imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;
 imageBaseUrl + imageDetailUrl;
 </js>
 
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+<js>
+cookie.removeCookie(baseUrl);
+let realDomainArray = java.connect(baseUrl).url().split("/");
+java.put("searchUrl",`${realDomainArray[0]}//${realDomainArray[2]}/modules/article/search.php`);
+</js>
+{{java.get("searchUrl")}}, {
+    "method": "POST",
+    "charset": "gbk",
+    "body": "searchkey={{key}}&submit=Search",
+    "headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}
+}
+
+
+https://69shu.me/
+
+
+<js>
+result = result.replace(/.*\n/,"").replace(/.*\n/,"").replace(/\s*[（|(]本章完[)|）]\s*/,"");
+
+if (title.length < 5) { result = result.replace(new RegExp(`\\s+?${title}\\n`),"") } 
+else { result = result.replace(new RegExp(`\\s+?${title.substr(0,title.length*2/3)}.*\\n`),"") }
+
+result.replace(new RegExp(`\\s+?第\\S+?章.{0,${title.length}}\\n`),"");
+</js>
 

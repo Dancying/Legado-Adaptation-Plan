@@ -34,6 +34,9 @@ https://www.piaotia.com/modules/article/search.php?searchtype=articlename&search
 {{result.match(/最新章节：\S+\s?\S+">(\S+\s?\S+)<\/a>/)[1]}}
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 {"title": "玄幻魔法", "url": "/booksort1/0/{{page}}.html"},
 {"title": "武侠修真", "url": "/booksort2/0/{{page}}.html"},
 {"title": "都市言情", "url": "/booksort3/0/{{page}}.html"},
@@ -61,4 +64,16 @@ https://www.piaotia.com/modules/article/search.php?searchtype=articlename&search
     {"title": "全本小说", "url": "/quanben/index.html?page={{page}}"},
     {"title": "全部文章", "url": "/booksort/0/{{page}}.html"}
 ]
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+<js>
+result = result.replace(/\s*[（|(]本章完[)|）]\s*/,"").replace(/\s*[（|(][)|）]\s*/,"");
+
+if (title.length < 5) { result = result.replace(new RegExp(`\\s+?${title}\\n`),"") } 
+else { result = result.replace(new RegExp(`\\s+?${title.substr(0,title.length*2/3)}.*\\n`),"") }
+
+result.replace(new RegExp(`\\s*?第\\S+?章.{0,${title.length}}\\n`),"");
+</js>
 
