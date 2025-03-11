@@ -40,7 +40,7 @@
         "lastChapter": "{{\"【该源发现页无最新章节信息】\"}}"
     },
     "bookSourceType": 0,
-    "bookSourceUrl": "https://cn.ttkan.co/",
+    "bookSourceUrl": "https://www.ttkan.co/",
     "bookSourceName": "天天看小说",
     "concurrentRate": "1/1000",
     "header": "{\"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36\"}",
