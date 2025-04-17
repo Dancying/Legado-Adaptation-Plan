@@ -1,0 +1,58 @@
+{
+    "ruleSearch": {
+        "bookList": "div.newbox>ul>li",
+        "checkKeyWord": "不许没收我的人籍",
+        "name": "div.newbox>ul>li>div.newnav>h3@text",
+        "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
+        "lastChapter": "li>div.newnav>div.zxzj>p@ownText",
+        "intro": "ol.ellipsis_2@html",
+        "coverUrl": "li>a>img@data-src",
+        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=sixnine`</js>"
+    },
+    "ruleBookInfo": {
+        "name": "div.booknav2>h1@text",
+        "author": "div.booknav2>p:first-of-type>a@text",
+        "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+\\.?\\d*万?字?\\s?\\|\\s?)##",
+        "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##",
+        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text##(^\\d+\\.?)##",
+        "intro": "div.navtxt>p:first-of-type@html",
+        "coverUrl": "div.bookimg2>img@src",
+        "tocUrl": "a.btn.more-btn@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=sixnine`</js>"
+    },
+    "ruleToc": {
+        "chapterList": "-#catalog>ul>li",
+        "chapterName": "#catalog>ul>li>a@text##(^\\d+\\.?)##",
+        "chapterUrl": "#catalog>ul>li>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=sixnine`</js>"
+    },
+    "ruleContent": {
+        "content": "div.txtnav@html",
+        "replaceRegex": "<js>\nresult = result.replace(/.*\\n/,\"\").replace(/.*\\n/,\"\").replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "bookList": "div.newlistbox>ul>li",
+        "name": "h3>a@text",
+        "author": "div.labelbox>label:first-of-type@text",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text##(\\d+\\.?\\d*万?字?)##",
+        "lastChapter": "{{\"【该源发现页无最新章节信息】\"}}",
+        "intro": "ol.ellipsis_2@text",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.shucdn.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "bookUrl": "h3>a@href",
+        "wordCount": "div.labelbox>label:last-of-type@text##(^\\D+)##"
+    },
+    "bookSourceUrl": "https://api.dancying.cn/legado/",
+    "bookSourceType": 0,
+    "bookSourceName": "69SHUBA",
+    "bookSourceGroup": "PROXY",
+    "bookSourceComment": "API SOURCE",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "concurrentRate": "1/1000",
+    "searchUrl": "search, {\n    \"method\": \"POST\",\n    \"body\": \"keyword={{key}}&site=sixnine\"\n}",
+    "exploreUrl": "[\n    {\"title\": \"🍀🍀排行页面🍀🍀\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/blist/monthvisit_0_0_{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/blist/monthvisit_1_0_{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/blist/monthvisit_2_0_{{page}}.htm\"},\n    {\"title\": \"言情小说\", \"url\": \"/blist/monthvisit_3_0_{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/blist/monthvisit_4_0_{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/blist/monthvisit_5_0_{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/blist/monthvisit_6_0_{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/blist/monthvisit_7_0_{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/blist/monthvisit_8_0_{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/blist/monthvisit_9_0_{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/blist/monthvisit_10_0_{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/blist/monthvisit_12_0_{{page}}.htm\"},\n\n    {\"title\": \"🌵🌵完本页面🌵🌵\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/blist/full/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/blist/full/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/blist/full/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/blist/full/2/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/blist/full/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/blist/full/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/blist/full/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/blist/full/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/blist/full/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/blist/full/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/blist/full/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/blist/full/12/{{page}}.htm\"},\n\n    {\"title\": \"🎋🎋分类页面🎋🎋\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/blist/class/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/blist/class/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/blist/class/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/blist/class/2/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/blist/class/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/blist/class/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/blist/class/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/blist/class/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/blist/class/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/blist/class/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/blist/class/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/blist/class/12/{{page}}.htm\"}\n]",
+    "enabled": true,
+    "enabledExplore": false,
+    "enabledCookieJar": false,
+    "weight": 99,
+    "customOrder": 6
+}
