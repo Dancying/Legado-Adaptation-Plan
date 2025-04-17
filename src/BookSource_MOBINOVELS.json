@@ -1,0 +1,58 @@
+{
+    "ruleSearch": {
+        "checkKeyWord": "为美好的世界献上祝福",
+        "bookList": "article[id]",
+        "name": "div.post-content-body>h4>a@text##(\\[.+?\\])##",
+        "author": "div.post-content-body>h4>a@text<js>result.match(/\\[.+?\\]/g).slice(-2,-1)[0]</js>##(\\[|\\])##",
+        "kind": "ul.post-categories>li>a@text##(\\d+年\\d*月?)##",
+        "coverUrl": "figure.abs-image>img@src",
+        "bookUrl": "div.figure-link-w>a@href",
+        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}",
+        "intro": "{{\"【该源搜索页不展示书籍简介】\"}}",
+        "wordCount": "div.meta-date>time@datetime##(T\\d+\\S+)##"
+    },
+    "ruleBookInfo": {
+        "name": "h1[class=\"post-title entry-title\"]>a@text##(\\[.+?\\])##",
+        "author": "<js>result.match(/作者：<\\/strong>(\\S+)<\\/span>/)[1]</js>",
+        "wordCount": "time[class=\"entry-date updated\"]@text",
+        "lastChapter": "tbody>tr:last-of-type>td.has-text-align-left>h6>span@text",
+        "coverUrl": "figure[class=\"alignright size-full\"]>a@href",
+        "intro": "div.wp-block-group>div>p@html<js>result.substr(result.indexOf(\"故事简介\"))</js>##(故事简介\\S*\\s*)##",
+        "kind": "h1[class=\"post-title entry-title\"]>a@text<js>String(result).match(/\\[.+?\\]/g)</js>##(\\[|\\]|{{book.author}})##"
+    },
+    "ruleToc": {
+        "chapterName": "tbody>tr>td.has-text-align-left>h6>span@text",
+        "chapterList": "tbody>tr",
+        "chapterUrl": "tbody>tr>td:last-of-type>a@href",
+        "updateTime": "{{\"卷数：\"}}{{@@tbody>tr>td:first-of-type@text}}"
+    },
+    "ruleContent": {
+        "content": "<js>`\n该源需手动下载书籍\n以下为 EPUB 书籍下载地址\n${baseUrl}\n资源密码均为 6195\nPS: 阅读菜单界面，书源名称旁的链接可直达\n`</js>"
+    },
+    "ruleReview": {},
+    "ruleExplore": {
+        "lastChapter": "{{\"【该源发现页不展示最新章节】\"}}",
+        "intro": "{{\"【该源发现页不展示书籍简介】\"}}",
+        "bookList": "article[id]",
+        "name": "div.post-content-body>h4>a@text##(\\[.+?\\])##",
+        "author": "div.post-content-body>h4>a@text<js>result.match(/\\[.+?\\]/g).slice(-2,-1)[0]</js>##(\\[|\\])##",
+        "kind": "ul.post-categories>li>a@text##(\\d+年\\d*月?)##",
+        "wordCount": "div.meta-date>time@datetime##(T\\d+\\S+)##",
+        "coverUrl": "figure.abs-image>img@src",
+        "bookUrl": "div.figure-link-w>a@href"
+    },
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://mobinovels.com/",
+    "bookSourceName": "魔笔小说",
+    "concurrentRate": "1/1000",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36\"}",
+    "searchUrl": "/?s={{key}}&paged={{page}}",
+    "exploreUrl": "[\n    {\"title\": \"🍈🍈网站推荐🍈🍈\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"首页\", \"url\": \"/page/{{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"连载中\", \"url\": \"/topics/continued/page/{{page}}\"},\n    {\"title\": \"已完结\", \"url\": \"/topics/end/page/{{page}}\"},\n    {\"title\": \"动画化\", \"url\": \"/topics/animated/page/{{page}}\"},\n\n    {\"title\": \"🍊🍊动画年份🍊🍊\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"2023年\", \"url\": \"/topics/animated/in-2023/page/{{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"2022年\", \"url\": \"/topics/animated/in-2022/page/{{page}}\"},\n    {\"title\": \"2021年\", \"url\": \"/topics/animated/in-2021/page/{{page}}\"},\n    {\"title\": \"2020年\", \"url\": \"/topics/animated/in-2020/page/{{page}}\"},\n    {\"title\": \"2019年\", \"url\": \"/topics/animated/in-2019/page/{{page}}\"},\n    {\"title\": \"2018年\", \"url\": \"/topics/animated/in-2018/page/{{page}}\"},\n    {\"title\": \"2017年\", \"url\": \"/topics/animated/in-2017/page/{{page}}\"},\n    {\"title\": \"2016年\", \"url\": \"/topics/animated/in-2016/page/{{page}}\"},\n    {\"title\": \"2015年\", \"url\": \"/topics/animated/in-2015/page/{{page}}\"},\n    {\"title\": \"2014年\", \"url\": \"/topics/animated/in-2014/page/{{page}}\"},\n    {\"title\": \"2013年\", \"url\": \"/topics/animated/in-2013/page/{{page}}\"},\n    {\"title\": \"2012年\", \"url\": \"/topics/animated/in-2012/page/{{page}}\"},\n    {\"title\": \"2011年\", \"url\": \"/topics/animated/in-2011/page/{{page}}\"},\n    {\"title\": \"2010年\", \"url\": \"/topics/animated/in-2010/page/{{page}}\"},\n    {\"title\": \"2009年\", \"url\": \"/topics/animated/in-2009/page/{{page}}\"},\n    {\"title\": \"2008年\", \"url\": \"/topics/animated/in-2008/page/{{page}}\"},\n    {\"title\": \"2007年\", \"url\": \"/topics/animated/in-2007/page/{{page}}\"},\n    {\"title\": \"2006年\", \"url\": \"/topics/animated/in-2006/page/{{page}}\"},\n    {\"title\": \"2005年\", \"url\": \"/topics/animated/in-2005/page/{{page}}\"},\n    {\"title\": \"2003年\", \"url\": \"/topics/animated/in-2003/page/{{page}}\"},\n    {\"title\": \"2002年\", \"url\": \"/topics/animated/in-2002/page/{{page}}\"}\n]",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "customOrder": 51,
+    "weight": 60,
+    "bookSourceGroup": "General",
+    "bookSourceComment": "日本轻小说下载网站；\n正文页仅展示下载地址，需手动下载书籍；"
+}
