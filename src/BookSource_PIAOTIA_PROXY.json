@@ -1,62 +1,46 @@
 {
-    "ruleSearch": {
-        "checkKeyWord": "不许没收我的人籍",
-        "bookList": "#centerm>#content>table.grid>tbody>tr:not(tr:first-of-type)",
-        "name": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@text",
-        "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
-        "kind": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(6)@text&&#centerm>#content>table.grid>tbody>tr>td:nth-of-type(5)@text##(24-)##2024-",
-        "wordCount": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(4)@text",
-        "lastChapter": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(2)>a@text",
-        "bookUrl": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=flysky`</js>",
-        "intro": "{{\"No Book Description\"}}",
-        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://www.piaotia.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>"
-    },
+    "bookSourceComment": "API SOURCE",
+    "bookSourceGroup": "PROXY",
+    "bookSourceName": "PIAOTIAN",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://book-2.dancying.cn",
+    "concurrentRate": "1/1000",
+    "customOrder": 7,
+    "enabled": true,
+    "enabledCookieJar": false,
+    "enabledExplore": false,
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
     "ruleBookInfo": {
-        "name": "span>h1@text",
         "author": "{{result.match(/作\\S+\\s者：(\\S+)<\\/td>/)[1]}}",
-        "kind": "{{result.match(/类\\S+\\s别：(\\S+)<\\/td>/)[1]}}\n{{result.match(/文章状态：(\\S+)<\\/td>/)[1]}}\n{{result.match(/最后更新：(\\d+-?\\d+-?\\d+)<\\/td>/)[1]}}",
-        "wordCount": "{{result.match(/全文长度：(\\d+字)<\\/td>/)[1]}}",
-        "lastChapter": "tbody>tr>td>div>a@text",
-        "intro": "#content>table>tbody>tr:nth-of-type(4)>td>table>tbody>tr>td:nth-of-type(2)>div@textNodes",
         "coverUrl": "#content>table>tbody>tr:nth-of-type(4)>td>table>tbody>tr>td:nth-of-type(2)>a>img@src",
-        "tocUrl": "table>caption>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=flysky`</js>"
+        "intro": "#content>table>tbody>tr:nth-of-type(4)>td>table>tbody>tr>td:nth-of-type(2)>div@textNodes",
+        "kind": "{{result.match(/类\\S+\\s别：(\\S+)<\\/td>/)[1]}}\n{{result.match(/文章状态：(\\S+)<\\/td>/)[1]}}\n{{result.match(/最后更新：(\\d+-?\\d+-?\\d+)<\\/td>/)[1]}}",
+        "lastChapter": "tbody>tr>td>div>a@text",
+        "name": "span>h1@text",
+        "tocUrl": "table>caption>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=flysky`</js>",
+        "wordCount": "{{result.match(/全文长度：(\\d+字)<\\/td>/)[1]}}"
+    },
+    "ruleContent": {
+        "content": "body@textNodes",
+        "replaceRegex": "<js>\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\").replace(/\\s*[（|(][)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s*?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+    },
+    "ruleSearch": {
+        "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
+        "bookList": "#centerm>#content>table.grid>tbody>tr:not(tr:first-of-type)",
+        "bookUrl": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=flysky`</js>",
+        "checkKeyWord": "不许没收我的人籍",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://www.piaotia.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "{{\"No Book Description\"}}",
+        "kind": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(6)@text&&#centerm>#content>table.grid>tbody>tr>td:nth-of-type(5)@text##(24-)##2024-",
+        "lastChapter": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(2)>a@text",
+        "name": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@text",
+        "wordCount": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(4)@text"
     },
     "ruleToc": {
         "chapterList": "div.centent>ul>li>a",
         "chapterName": "a@text",
-        "chapterUrl": "a@href\n<js>baseUrl.replace(\"index.html\", result)</js>",
-        "preUpdateJs": "",
-        "nextTocUrl": ""
+        "chapterUrl": "a@href\n<js>baseUrl.replace(\"index.html\", result)</js>"
     },
-    "ruleContent": {
-        "content": "body@textNodes",
-        "replaceRegex": "<js>\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\").replace(/\\s*[（|(][)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s*?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>",
-        "title": ""
-    },
-    "ruleReview": {},
-    "ruleExplore": {
-        "intro": "{{\"【该源发现页无书籍简介】\"}}",
-        "bookList": "#centerm>#content>table.grid>tbody>tr:not(tr:first-of-type)",
-        "name": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@text",
-        "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
-        "kind": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(6)@text&&#centerm>#content>table.grid>tbody>tr>td:nth-of-type(5)@text##(24-)##2024-",
-        "wordCount": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(4)@text",
-        "lastChapter": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(2)>a@text",
-        "bookUrl": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(1)>a@href",
-        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://www.piaotia.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>"
-    },
-    "bookSourceUrl": "https://book-2.dancying.cn",
-    "bookSourceType": 0,
-    "bookSourceName": "PIAOTIAN",
-    "bookSourceGroup": "PROXY",
-    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
-    "concurrentRate": "1/1000",
-    "bookSourceComment": "API SOURCE",
     "searchUrl": "https://api.dancying.cn/legado/search, {\n    \"method\": \"POST\",\n    \"body\": \"keyword={{key}}&site=flysky\"\n}",
-    "exploreUrl": "[\n    {\"title\": \"🎐🎐网站分类🎐🎐\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/booksort1/0/{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"武侠修真\", \"url\": \"/booksort2/0/{{page}}.html\"},\n    {\"title\": \"都市言情\", \"url\": \"/booksort3/0/{{page}}.html\"},\n    {\"title\": \"历史军事\", \"url\": \"/booksort4/0/{{page}}.html\"},\n    {\"title\": \"网游竞技\", \"url\": \"/booksort5/0/{{page}}.html\"},\n    {\"title\": \"科幻小说\", \"url\": \"/booksort6/0/{{page}}.html\"},\n    {\"title\": \"恐怖灵异\", \"url\": \"/booksort7/0/{{page}}.html\"},\n    {\"title\": \"同人漫画\", \"url\": \"/booksort8/0/{{page}}.html\"},\n    {\"title\": \"其他类型\", \"url\": \"/booksort9/0/{{page}}.html\"},\n    {\"title\": \"全本小说\", \"url\": \"/quanben/index.html?page={{page}}\"},\n    {\"title\": \"全部文章\", \"url\": \"/booksort/0/{{page}}.html\"}\n]",
-    "enabled": true,
-    "enabledExplore": false,
-    "enabledCookieJar": false,
-    "weight": 99,
-    "customOrder": 7
+    "weight": 99
 }
