@@ -32,6 +32,12 @@ Legado Releases : [https://github.com/gedoor/legado/releases](https://github.com
 https://raw.githubusercontent.com/Dancying/Legado-Adaptation-Plan/main/src/BookSource.json
 ```
 
+> [!TIP]  
+> Server Proxy Sources Import Link:  
+> ```
+> https://api.dancying.cn/legado/BookSource.json
+> ```
+
 <img src="doc/images/Legado-My-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Import.png" width="33%">  
 
 
