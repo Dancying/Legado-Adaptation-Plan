@@ -15,43 +15,17 @@ Legado 项目地址 : [https://github.com/gedoor/legado](https://github.com/gedo
 Legado Releases : [https://github.com/gedoor/legado/releases](https://github.com/gedoor/legado/releases)  
 
 
-### 规则导入
-
-本项目有书源规则和字典规则可供导入，实际为导入项目中的 `src/BookSource.json` 文件和 `src/DictSource.json` 文件。  
-
-> 若无法导入，请检查网络与 GitHub 网站是否能够正常连通，或选择下载目标文件进行本地导入操作。  
-
-
-#### 书源导入
+### 书源导入
 
 打开 Legado APP 软件，进入 【我的】 页面，进入 【书源管理】 页面，找到 【网络导入】 选项。  
 
 在 【网络导入】 的 URL 地址输入栏中填入以下地址，然后确认即可。  
 
 ```
-https://raw.githubusercontent.com/Dancying/Legado-Adaptation-Plan/main/src/BookSource.json
+https://api.dancying.cn/legado/BookSource.json
 ```
-
-> [!TIP]  
-> Server Proxy Sources Import Link:  
-> ```
-> https://api.dancying.cn/legado/BookSource.json
-> ```
 
 <img src="doc/images/Legado-My-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Import.png" width="33%">  
-
-
-#### 字典源导入
-
-打开 Legado APP 软件，进入 【我的】 页面，进入 【字典规则】 页面，找到 【网络导入】 选项。  
-
-在 【网络导入】 的 URL 地址输入栏中填入以下地址，然后确认即可。  
-
-```
-https://raw.githubusercontent.com/Dancying/Legado-Adaptation-Plan/main/src/DictSource.json
-```
-
-<img src="doc/images/Legado-My-Page.png" width="33%"><img src="doc/images/Legado-DictSource-Page.png" width="33%"><img src="doc/images/Legado-DictSource-Import.png" width="33%">  
 
 
 ## 开源协议
