@@ -25,7 +25,7 @@
     "ruleToc": {
         "chapterList": "$.data",
         "chapterName": "$.title##(^\\d+\\.?)##",
-        "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html"
+        "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html, {\"webView\": true}"
     },
     "ruleContent": {
         "content": "article.page-content>section>p:not(.abg)@html",
