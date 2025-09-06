@@ -27,6 +27,13 @@ https://api.dancying.cn/legado/BookSource.json
 
 <img src="doc/images/Legado-My-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Import.png" width="33%">  
 
+<img src="doc/images/Book_Source_Verification_Result.jpg" width="33%"><img src="doc/images/Book_Source_Explore_Page.jpg" width="33%"><img src="doc/images/Book_Source_Code_Snippet.jpg" width="33%">  
+
+> [!IMPORTANT]  
+> 本项目使用闲置云服务器对 PROXY 分组的书源进行内容获取，如果 Cookies 过期则需要间隔大约 30 秒才能再次发起请求。  
+> 本项目不提供 Issues 支持，若书源出现问题请使用 <dancying2023@163.com> 反馈。  
+> 如果书源校验失败，请多尝试几次，以及尝试更换网络后再校验。  
+
 
 ## 开源协议
 
