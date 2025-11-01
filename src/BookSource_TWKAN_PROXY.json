@@ -19,7 +19,7 @@
         "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\D+)##"
     },
     "ruleContent": {
-        "content": "#txtcontent@html"
+        "content": "#txtcontent0@html"
     },
     "ruleSearch": {
         "author": "div.labelbox>label:first-of-type@text<js>toSimp(result)</js>",
