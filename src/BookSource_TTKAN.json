@@ -45,7 +45,7 @@
     "ruleToc": {
         "chapterList": "<js>java.get(\"chapterList\")</js>$.items",
         "chapterName": "$.chapter_name##(^\\d+\\.?)##<js>toSimp(result)</js>",
-        "chapterUrl": "https://cn.bg3.co/novel/pagea/{{java.get(\"bookId\")}}_{{$.chapter_id}}.html"
+        "chapterUrl": "https://www.wa01.com/novel/pagea/{{java.get(\"bookId\")}}_{{$.chapter_id}}.html"
     },
     "searchUrl": "/novel/search?q={{key}}",
     "weight": 90
