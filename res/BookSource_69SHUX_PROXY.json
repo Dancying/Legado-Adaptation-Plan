@@ -1,0 +1,43 @@
+{
+    "bookSourceComment": "✨ 本书源使用私有云服务器代理请求，无需翻墙。\n✨ 本书源偶尔校验失败，可能是云服务器无响应。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "PROXY",
+    "bookSourceName": "69SHUX",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://book-4.dancying.cn",
+    "concurrentRate": "3000",
+    "customOrder": 53,
+    "enabled": false,
+    "enabledCookieJar": false,
+    "enabledExplore": false,
+    "ruleBookInfo": {
+        "author": "div.booknav2>p:first-of-type@text",
+        "coverUrl": "div.bookimg2>img@src\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "init": "<js>java.t2s(result)</js>",
+        "intro": "div.navtxt>p@html",
+        "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.booknav2>p:nth-of-type(4)@text##(\\d.+字\\s?\\|\\s?|更新\\D+)##",
+        "lastChapter": "ul.qustime>li:first-of-type>a>span@text",
+        "name": "h1>a@text",
+        "tocUrl": "a[class=\"btn more-btn\"]@href\n<js>`https://69shux.co/ajax_novels/chapterlist/${result.match(/book\\D+(\\d+)\\D+/)[1]}.html`</js>\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\D+)##"
+    },
+    "ruleContent": {
+        "content": "<js>java.t2s(result)</js>#txtcontent@html"
+    },
+    "ruleSearch": {
+        "author": "div.labelbox>label:first-of-type@text",
+        "bookList": "<js>java.t2s(result)</js>#article_list_content>li",
+        "bookUrl": "h3>a:last-of-type@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "coverUrl": "a.imgbox>img@src\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "intro": "ol.ellipsis_2@html",
+        "kind": "div.labelbox>label:not(label:first-of-type)@text",
+        "lastChapter": "div.zxzj>p>a@text",
+        "name": "h3>a:last-of-type@text"
+    },
+    "ruleToc": {
+        "chapterList": "<js>java.t2s(result)</js>ul>li",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href<js>`https://api.dancying.cn/legado/proxy?url=${result}&site=shux`</js>"
+    },
+    "searchUrl": "https://api.dancying.cn/legado/search?url=https://69shux.co/search&keywords={{key}}",
+    "weight": 75
+}

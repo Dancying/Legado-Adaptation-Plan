@@ -1,0 +1,56 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，偶尔不能搜索。\n✨ 本书源目录分页太多，所以获取目录数据较慢。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "General",
+    "bookSourceName": "卡夜阁",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.kaye-ge.com/",
+    "concurrentRate": "1500",
+    "customOrder": 32,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🍧🍧🍧网站推荐🍧🍧🍧\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"首页\", \"url\": \"/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"榜单\", \"url\": \"/sort/{{page}}/\"},\n    {\"title\": \"完本\", \"url\": \"/quanben/sort/{{page}}/\"},\n\n    {\"title\": \"🍨🍨🍨网站分类🍨🍨🍨\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻小说\", \"url\": \"/sort/1/{{page}}/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"奇幻小说\", \"url\": \"/sort/2/{{page}}/\"},\n    {\"title\": \"武侠小说\", \"url\": \"/sort/3/{{page}}/\"},\n    {\"title\": \"仙侠小说\", \"url\": \"/sort/4/{{page}}/\"},\n    {\"title\": \"都市小说\", \"url\": \"/sort/5/{{page}}/\"},\n    {\"title\": \"军事小说\", \"url\": \"/sort/6/{{page}}/\"},\n    {\"title\": \"历史小说\", \"url\": \"/sort/7/{{page}}/\"},\n    {\"title\": \"游戏小说\", \"url\": \"/sort/8/{{page}}/\"},\n    {\"title\": \"竞技小说\", \"url\": \"/sort/9/{{page}}/\"},\n    {\"title\": \"科幻小说\", \"url\": \"/sort/10/{{page}}/\"},\n    {\"title\": \"悬疑小说\", \"url\": \"/sort/11/{{page}}/\"},\n    {\"title\": \"灵异小说\", \"url\": \"/sort/12/{{page}}/\"},\n    {\"title\": \"其他小说\", \"url\": \"/sort/13/{{page}}/\"},\n    {\"title\": \"古代小说\", \"url\": \"/sort/14/{{page}}/\"},\n    {\"title\": \"仙侠小说\", \"url\": \"/sort/15/{{page}}/\"},\n    {\"title\": \"现代小说\", \"url\": \"/sort/16/{{page}}/\"},\n    {\"title\": \"浪漫小说\", \"url\": \"/sort/17/{{page}}/\"},\n    {\"title\": \"玄幻小说\", \"url\": \"/sort/18/{{page}}/\"},\n    {\"title\": \"悬疑小说\", \"url\": \"/sort/19/{{page}}/\"},\n    {\"title\": \"科幻小说\", \"url\": \"/sort/20/{{page}}/\"},\n    {\"title\": \"游戏小说\", \"url\": \"/sort/21/{{page}}/\"},\n    {\"title\": \"BL小说\", \"url\": \"/sort/22/{{page}}/\"},\n    {\"title\": \"GL小说\", \"url\": \"/sort/23/{{page}}/\"},\n    {\"title\": \"二次元小说\", \"url\": \"/sort/24/{{page}}/\"}\n]",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+    "ruleBookInfo": {
+        "author": "div.info>div.top>div.fix>p:first-of-type>a@text",
+        "coverUrl": "div.imgbox>img@src",
+        "intro": "div[class=\"desc xs-hidden\"]@html",
+        "kind": "div.info>div.top>div.fix>p:nth-of-type(5)@text&&div.info>div.top>div.fix>p.xs-show@text##(最后更新：\\s*|类\\s*别：|状\\s*态：|\\d\\d:\\d\\d:\\d\\d)##",
+        "lastChapter": "div[class=\"row row-section\"]>div[class=\"layout layout-col1\"]>div:first-of-type>ul>li:first-of-type>a@text",
+        "name": "div.info>div.top>h1@text",
+        "wordCount": "div.info>div.top>div.fix>p:last-of-type>span@text##(万)##万字"
+    },
+    "ruleContent": {
+        "content": "#content@html\n<js>result = result + \"---------------------------\"</js>",
+        "nextContentUrl": "div[class=\"section-opt m-bottom-opt\"]>a#next_url@href",
+        "replaceRegex": "<js>\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n\nresult = result.replace(/\\s*-+\\s*/g,\"\");\n</js>",
+        "title": "h1.title@text"
+    },
+    "ruleExplore": {
+        "author": "li>span.s4@text",
+        "bookList": "ul[class=\"txt-list txt-list-row5\"]>li",
+        "bookUrl": "li>span.s2>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"li>span.s2>a\").attr(\"href\");\nlet bookId = bookUrl.match(/\\d+/)[0];\nlet imageBaseUrl = \"https://www.kaye-ge.com/images/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "kind": "li>span.s1@text&&li>span.s5@text##(\\[|\\])##",
+        "lastChapter": "li>span.s3>a@text",
+        "name": "li>span.s2>a@text"
+    },
+    "ruleSearch": {
+        "author": "div.item>dl>dt>span@text",
+        "bookList": "<js>if (result.includes(\"DDoS\")) { java.longToast(\"Cookie 获取中，请 5 秒后重试\"); } else { result }</js>div.item",
+        "bookUrl": "div.item>dl>dt>a@href",
+        "checkKeyWord": "离谱！我堂堂魔王，手无缚鸡之力",
+        "coverUrl": "div.item>div.image>a>img@src",
+        "intro": "div.item>dl>dd@html",
+        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}",
+        "name": "div.item>dl>dt>a@text"
+    },
+    "ruleToc": {
+        "chapterList": "div[class=\"row row-section\"]>div[class=\"layout layout-col1\"]>div:nth-of-type(2)>ul>li>a",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href",
+        "nextTocUrl": "div.index-container>a:last-of-type@href"
+    },
+    "searchUrl": "https://www.sososhu.com/?site=kaye-ge&q={{key}}, {\"webView\": true}",
+    "weight": 85
+}

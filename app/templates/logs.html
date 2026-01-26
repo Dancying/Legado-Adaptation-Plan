@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legado-Adaptation-Plan-Logs</title>
+    <style>
+        :root {
+            --bg-body: #e5e1db;
+            --bg-card: #f0ede8;
+            --bg-input: #f7f5f2;
+            --text-primary: #4a443f;
+            --accent-color: #8c7e6d;
+            --border-color: #cdc5bc;
+            --radius: 20px;
+        }
+
+        body {
+            font-family: 'Consolas', monospace;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0; padding: 0 36px;
+            height: 100vh; display: flex; flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header-wrapper { padding: 24px 0 12px; flex-shrink: 0; }
+
+        .controls {
+            background: var(--bg-card); padding: 16px 24px;
+            border-radius: var(--radius); border: 1px solid var(--border-color);
+            display: flex; align-items: center; gap: 15px;
+            font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .search-wrapper { position: relative; display: flex; align-items: center; }
+
+        input, select {
+            background: var(--bg-input); border: 1px solid var(--border-color);
+            padding: 10px 16px; border-radius: 12px;
+            outline: none; font-size: 16px; color: var(--text-primary);
+        }
+
+        input[type="text"] { width: 260px; padding-right: 40px; }
+
+        .line-input { width: 80px; text-align: center; padding: 8px; margin: 0 5px; }
+        .line-input::-webkit-inner-spin-button,
+        .line-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+        .switch-container {
+            display: flex; align-items: center; gap: 8px;
+            color: var(--accent-color); cursor: pointer; margin-left: 10px;
+        }
+
+        .switch { position: relative; width: 40px; height: 20px; display: inline-block; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border-color); transition: .3s; border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute; content: ""; height: 14px; width: 14px;
+            left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .info-badge { color: var(--accent-color); margin-left: 24px; display: flex; align-items: center; }
+
+        .log-container {
+            background: var(--bg-card); border-radius: var(--radius);
+            border: 1px solid var(--border-color); margin: 12px 0 40px;
+            flex-grow: 1; overflow: auto; font-size: 16px; line-height: 1.5;
+            padding: 0 24px;
+        }
+
+        .log-container::before { content: ""; display: block; height: 24px; flex-shrink: 0; }
+        .log-container::after { content: ""; display: block; height: 40vh; flex-shrink: 0; }
+
+        .wrap-on { white-space: pre-wrap; word-break: break-all; }
+        .wrap-off { white-space: pre; word-break: normal; }
+
+        .log-container::-webkit-scrollbar { width: 8px; height: 8px; }
+        .log-container::-webkit-scrollbar-thumb { background: #cdc5bc; border-radius: 4px; }
+
+        .log-line { display: block; margin-bottom: 8px; }
+        .log-line a { color: inherit; text-decoration: inherit; }
+        .log-line a:hover { text-decoration: underline; }
+        .log-line:hover { background: rgba(0, 0, 0, 0.03); }
+
+        .INFO { color: #386641; }
+        .WARNING { color: #bc6c25; }
+        .ERROR { color: #ae2012; font-weight: bold; }
+        .DEBUG { color: #6d6875; }
+
+        .clear-btn {
+            position: absolute; right: 12px; cursor: pointer;
+            color: #b0a69b; font-size: 22px; display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+        <div class="controls">
+            <div class="search-wrapper">
+                <input type="text" id="filterKeyword" placeholder="Search" oninput="onSearchInput()">
+                <span id="clearBtn" class="clear-btn" onclick="clearSearch()">&times;</span>
+            </div>
+
+            <select id="fileSelect" onchange="requestNewLogs()">
+                {% for file in log_files %}
+                <option value="{{ file }}" {% if file == current_file %}selected{% endif %}>{{ file }}</option>
+                {% endfor %}
+            </select>
+
+            <label class="switch-container">
+                <span>Wrap</span>
+                <div class="switch">
+                    <input type="checkbox" id="wrapToggle" onchange="handleWrapChange()">
+                    <span class="slider"></span>
+                </div>
+            </label>
+
+            <div class="info-badge">
+                Logs: Last
+                <input type="number" id="lineInput" class="line-input"
+                       value="{{ line_count }}"
+                       onfocus="this.oldValue = this.value;"
+                       onblur="validateAndRequest(this)"
+                       onkeydown="if(event.keyCode==13) this.blur()">
+                Lines | Matches: <span id="matchCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="logContent" class="log-container wrap-off">
+        {%- for line in logs -%}
+        <div class="log-line">
+            {%- set s = line | string -%}
+            {%- if 'INFO' in s -%}<span class="INFO">{{ line.rstrip() }}</span>
+            {%- elif 'WARNING' in s -%}<span class="WARNING">{{ line.rstrip() }}</span>
+            {%- elif 'ERROR' in s -%}<span class="ERROR">{{ line.rstrip() }}</span>
+            {%- else -%}{{ line.rstrip() }}{%- endif -%}
+        </div>
+        {%- endfor -%}
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('filterKeyword');
+        const clearBtn = document.getElementById('clearBtn');
+        const container = document.getElementById('logContent');
+        const fileSelect = document.getElementById('fileSelect');
+        const lineInput = document.getElementById('lineInput');
+
+        function checkRefresh() {
+            const navEntries = performance.getEntriesByType("navigation");
+            const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
+            if (isReload && window.location.search !== "") {
+                window.location.href = window.location.pathname;
+            }
+        }
+
+        function validateAndRequest(el) {
+            const val = el.value.trim();
+            if (!/^\d+$/.test(val) || parseInt(val) <= 0) {
+                el.value = el.oldValue;
+                return;
+            }
+            if (val === el.oldValue) return;
+            requestNewLogs();
+        }
+
+        function requestNewLogs() {
+            const file = fileSelect.value;
+            const lines = lineInput.value;
+            const baseRoute = window.location.pathname;
+            window.location.href = `${baseRoute}?filename=${file}&lines=${lines}`;
+        }
+
+        function linkify() {
+            const pattern = /(https?:\/\/[^\s]+)/g;
+            document.querySelectorAll('.log-line').forEach(line => {
+                line.innerHTML = line.innerHTML.replace(pattern, '<a href="$1" target="_blank">$1</a>');
+            });
+        }
+
+        function handleWrapChange() {
+            const isChecked = document.getElementById('wrapToggle').checked;
+            container.classList.toggle('wrap-on', isChecked);
+            container.classList.toggle('wrap-off', !isChecked);
+        }
+
+        function onSearchInput() {
+            clearBtn.style.display = searchInput.value ? 'block' : 'none';
+            let count = 0;
+            const kw = searchInput.value.toLowerCase();
+            document.querySelectorAll('.log-line').forEach(line => {
+                const show = line.textContent.toLowerCase().includes(kw);
+                line.style.display = show ? 'block' : 'none';
+                if(show) count++;
+            });
+            document.getElementById('matchCount').textContent = count;
+        }
+
+        function clearSearch() {
+            searchInput.value = '';
+            onSearchInput();
+            searchInput.focus();
+        }
+
+        window.onload = () => {
+            checkRefresh();
+            linkify();
+            onSearchInput();
+            container.scrollTop = 0;
+        };
+    </script>
+</body>
+</html>

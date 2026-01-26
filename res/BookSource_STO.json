@@ -1,0 +1,52 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络无法搜索，需要切换网络使用。\n✨ 本书源正文保留繁体，阅读界面可以转为简体。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "VPN",
+    "bookSourceName": "思兔阅读",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://sto55.com/",
+    "concurrentRate": "1500",
+    "customOrder": 24,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n  {\"title\": \"🍹🍹🍹书库页面🍹🍹🍹\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n  {\"title\": \"玄幻奇幻\", \"url\": \"/class_1_{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n  {\"title\": \"武侠仙侠\", \"url\": \"/class_2_{{page}}.html\"},\n  {\"title\": \"现代都市\", \"url\": \"/class_3_{{page}}.html\"},\n  {\"title\": \"历史军事\", \"url\": \"/class_4_{{page}}.html\"},\n  {\"title\": \"科幻小说\", \"url\": \"/class_5_{{page}}.html\"},\n  {\"title\": \"游戏竞技\", \"url\": \"/class_6_{{page}}.html\"},\n  {\"title\": \"恐怖灵异\", \"url\": \"/class_7_{{page}}.html\"},\n  {\"title\": \"言情小说\", \"url\": \"/class_8_{{page}}.html\"},\n  {\"title\": \"其他类型\", \"url\": \"/class_9_{{page}}.html\"},\n\n  {\"title\": \"🍸🍸🍸排行页面🍸🍸🍸\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n  {\"title\": \"总排行榜\", \"url\": \"/top/allvisit_{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n  {\"title\": \"总推荐榜\", \"url\": \"/top/allvote_{{page}}.html\"},\n  {\"title\": \"月排行榜\", \"url\": \"/top/monthvisit_{{page}}.html\"},\n  {\"title\": \"月推荐榜\", \"url\": \"/top/monthvote_{{page}}.html\"},\n  {\"title\": \"周排行榜\", \"url\": \"/top/weekvisit_{{page}}.html\"},\n  {\"title\": \"周推荐榜\", \"url\": \"/top/weekvote_{{page}}.html\"},\n  {\"title\": \"最新入库\", \"url\": \"/top/postdate_{{page}}.html\"},\n  {\"title\": \"最近更新\", \"url\": \"/top/lastupdate_{{page}}.html\"},\n  {\"title\": \"最近完结\", \"url\": \"/full_{{page}}.html\"},\n  {\"title\": \"总收藏榜\", \"url\": \"/top/goodnum_{{page}}.html\"}\n]",
+    "ruleBookInfo": {
+        "author": "p.booktag>a.red@text",
+        "coverUrl": "img.thumbnail@src",
+        "init": "<js>java.t2s(result)</js>",
+        "intro": "p.bookintro@html",
+        "kind": "p.booktag>span:not(span:nth-of-type(2))@text&&p.booktime@text##(\\D+：|\\s.*)##",
+        "lastChapter": "a.bookchapter@text",
+        "name": "h1.booktitle@text",
+        "tocUrl": "a.bookchapter@href<js>result.replace(result.match(/\\d+\\.html/), \"ajax_index.html\")</js>",
+        "wordCount": "p.booktag>span:nth-of-type(2)@text##字##"
+    },
+    "ruleContent": {
+        "content": "div[class=\"readcotent bbb font-normal\"]@html"
+    },
+    "ruleExplore": {
+        "author": "div.bookinfo>div:first-of-type@text##(\\S+：)##",
+        "bookList": "<js>java.t2s(result)</js>\ndiv#fengtui>div",
+        "bookUrl": "h4.bookname>a@href",
+        "intro": "div.update@ownText",
+        "lastChapter": "div.cat>a@text",
+        "name": "h4.bookname>a@text",
+        "wordCount": "div.bookinfo>div:nth-of-type(2)@text##(\\S+：)##"
+    },
+    "ruleSearch": {
+        "author": "div.author>a@text",
+        "bookList": "<js>java.t2s(result)</js>\ndiv.keywords>div",
+        "bookUrl": "div.bookname>a@href",
+        "intro": "div.update@ownText",
+        "lastChapter": "div.cat>a@text",
+        "name": "div.bookname>a@text",
+        "wordCount": "div.bookinfo>div:nth-of-type(3)@text##(\\S+：)##"
+    },
+    "ruleToc": {
+        "chapterList": "<js>java.t2s(result)</js>\ndd",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href"
+    },
+    "searchUrl": "/search/{{key}}/{{page}}.html",
+    "weight": 90
+}

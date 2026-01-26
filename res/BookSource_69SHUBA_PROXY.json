@@ -1,0 +1,44 @@
+{
+    "bookSourceComment": "✨ 本书源使用私有云服务器代理请求，无需翻墙。\n✨ 本书源偶尔校验失败，可能是云服务器无响应。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "PROXY",
+    "bookSourceName": "69SHUBA",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://book-1.dancying.cn",
+    "concurrentRate": "3000",
+    "customOrder": 51,
+    "enabled": false,
+    "enabledCookieJar": false,
+    "enabledExplore": false,
+    "ruleBookInfo": {
+        "author": "div.booknav2>p:first-of-type>a@text",
+        "coverUrl": "div.bookimg2>img@src\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "intro": "div.navtxt>p:first-of-type@html",
+        "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+\\.?\\d*万?字?\\s?\\|\\s?)##",
+        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text##(^\\d+\\.?)##",
+        "name": "div.booknav2>h1@text",
+        "tocUrl": "a.btn.more-btn@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##"
+    },
+    "ruleContent": {
+        "content": "div.txtnav@html",
+        "replaceRegex": "<js>\nresult = result.replace(/.*\\n/,\"\").replace(/.*\\n/,\"\").replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+    },
+    "ruleSearch": {
+        "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
+        "bookList": "div.newbox>ul>li",
+        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "checkKeyWord": "不许没收我的人籍",
+        "coverUrl": "li>a>img@data-src\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>",
+        "intro": "ol.ellipsis_2@html",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
+        "lastChapter": "li>div.newnav>div.zxzj>p@ownText",
+        "name": "div.newbox>ul>li>div.newnav>h3@text"
+    },
+    "ruleToc": {
+        "chapterList": "-#catalog>ul>li",
+        "chapterName": "#catalog>ul>li>a@text##(^\\d+\\.?)##",
+        "chapterUrl": "#catalog>ul>li>a@href\n<js>`https://api.dancying.cn/legado/proxy?url=${result}`</js>"
+    },
+    "searchUrl": "https://api.dancying.cn/legado/search?url=https://www.69shuba.com/modules/article/search.php&keywords={{key}}",
+    "weight": 75
+}

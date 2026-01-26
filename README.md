@@ -1,41 +1,93 @@
 # Legado-Adaptation-Plan
 
-本项目为 Legado 项目的第三方书源项目，旨在为 Legado APP 提供额外的阅读体验。  
+本项目是 **开源阅读 APP** 的第三方书源项目，项目中的书源只会根据个人需求进行增减。    
 
-Legado 项目地址 : [https://github.com/gedoor/legado](https://github.com/gedoor/legado)  
-
-
-## 使用说明
+开源阅读 APP 项目地址 : <https://github.com/gedoor/legado>    
 
 
-### 软件安装
+## 📖 使用说明
 
-前往 Legado 项目的 Releases 页面，下载并安装最新的 `.apk` 文件。  
-
-Legado Releases : [https://github.com/gedoor/legado/releases](https://github.com/gedoor/legado/releases)  
+在 **开源阅读 APP** 中粘贴书源导入链接地址即可使用。  
 
 
-### 书源导入
+### 1. 安装软件
 
-打开 Legado APP 软件，进入 【我的】 页面，进入 【书源管理】 页面，找到 【网络导入】 选项。  
+首先前往 **开源阅读 APP** 的 `Releases` 页面，找到最新的 `.apk` 文件下载并安装：  
 
-在 【网络导入】 的 URL 地址输入栏中填入以下地址，然后确认即可。  
+Legado Releases : <https://github.com/gedoor/legado/releases>    
+
+
+### 2. 导入书源
+
+启动 **开源阅读 APP** 应用，进入 【我的】 页面，进入 【书源管理】 页面，找到 【网络导入】 选项。  
+
+在 【网络导入】 的 URL 地址输入栏中填入以下地址，点击确认后勾选需要导入的书源配置。    
 
 ```
 https://api.dancying.cn/legado/BookSource.json
 ```
 
-<img src="doc/images/Legado-My-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Page.png" width="33%"><img src="doc/images/Legado-BookSource-Import.png" width="33%">  
+<img src="docs/images/Legado-My-Page.png" width="33%"><img src="docs/images/Legado-BookSource-Page.png" width="33%"><img src="docs/images/Legado-BookSource-Import.png" width="33%"><br>
 
-<img src="doc/images/Book_Source_Verification_Result.jpg" width="33%"><img src="doc/images/Book_Source_Explore_Page.jpg" width="33%"><img src="doc/images/Book_Source_Code_Snippet.jpg" width="33%">  
+<img src="docs/images/Book_Source_Verification_Result.jpg" width="33%"><img src="docs/images/Book_Source_Explore_Page.jpg" width="33%"><img src="docs/images/Book_Source_Code_Snippet.jpg" width="33%"><br>
 
 > [!IMPORTANT]  
-> 本项目使用闲置云服务器对 PROXY 分组的书源进行内容获取，如果 Cookies 过期则需要间隔大约 30 秒才能再次发起请求。  
-> 本项目不提供 Issues 支持，若书源出现问题请使用 <dancying2023@163.com> 反馈。  
-> 如果书源校验失败，请多尝试几次，以及尝试更换网络后再校验。  
+> 项目中 PROXY 分组的书源使用云服务器代理请求，偶尔服务器异常会导致该分组下的书源不可用。  
+> 项目中的书源都是在 `legado_app_3.25` 的开源阅读 APP 版本上编写或优化。  
 
 
-## 开源协议
+## 🛠️ 服务部署
+
+项目中 PROXY 分组的书源使用云服务器代理请求，如果需要使用自己的服务器可以根据以下步骤部署。  
+
+> 部分代理场景需要使用浏览器，所需依赖较多，故只推荐容器化部署。  
+
+
+### 1. 构建镜像
+
+克隆项目仓库到本地，然后在项目根目录中执行以下命令构建 podman 镜像：  
+
+```shell
+podman build \
+  --build-arg BASE_URL="https://api.dancying.cn" \
+  --build-arg API_PREFIX="/legado" \
+  -t localhost/novel-service:latest .
+```
+
+> 构建命令中的 `BASE_URL` 参数需要自行替换为云服务器的实际地址。  
+
+
+### 2. 运行镜像
+
+执行以下命令运行已构建的镜像：  
+
+```shell
+podman run -d \
+  --name novel-service \
+  -p 39966:39966 \
+  --shm-size=1g \
+  --log-opt max-size=20mb \
+  --log-opt max-file=3 \
+  localhost/novel-service:latest
+```
+
+
+### 3. 反向代理
+
+如果需要反向代理，可以参考以下 Nginx 配置：  
+
+```nginx
+location /legado/ {
+    proxy_pass http://127.0.0.1:39966;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+
+## ©️ 开源协议
 
 本项目使用 MIT 许可证。  
 
@@ -61,6 +113,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 ```
-

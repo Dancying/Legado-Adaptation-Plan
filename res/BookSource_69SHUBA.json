@@ -1,0 +1,58 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络无法使用，需要切换网络使用。\n✨ 本书源在搜索或正文页或会触发人机验证页面。\n✨ 本书源有搜索频率限制，两次间隔要大于五秒。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "VPN,Cloudflare",
+    "bookSourceName": "69书吧",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.69shuba.com/",
+    "concurrentRate": "1500",
+    "customOrder": 11,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🍀🍀🍀排行页面🍀🍀🍀\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/novels/monthvisit_0_0_{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/novels/monthvisit_1_0_{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/novels/monthvisit_2_0_{{page}}.htm\"},\n    {\"title\": \"言情小说\", \"url\": \"/novels/monthvisit_3_0_{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/novels/monthvisit_4_0_{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/novels/monthvisit_5_0_{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/novels/monthvisit_6_0_{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/novels/monthvisit_7_0_{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/novels/monthvisit_8_0_{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/novels/monthvisit_9_0_{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/novels/monthvisit_10_0_{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/novels/monthvisit_12_0_{{page}}.htm\"},\n\n    {\"title\": \"🌵🌵🌵完本页面🌵🌵🌵\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/novels/full/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/novels/full/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/novels/full/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/novels/full/2/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/novels/full/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/novels/full/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/novels/full/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/novels/full/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/novels/full/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/novels/full/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/novels/full/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/novels/full/12/{{page}}.htm\"},\n\n    {\"title\": \"🎋🎋🎋分类页面🎋🎋🎋\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部分类\", \"url\": \"/novels/class/0/{{page}}.htm\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"言情小说\", \"url\": \"/novels/class/3/{{page}}.htm\"},\n    {\"title\": \"玄幻魔法\", \"url\": \"/novels/class/1/{{page}}.htm\"},\n    {\"title\": \"修真武侠\", \"url\": \"/novels/class/2/{{page}}.htm\"},\n    {\"title\": \"都市小说\", \"url\": \"/novels/class/9/{{page}}.htm\"},\n    {\"title\": \"历史军事\", \"url\": \"/novels/class/4/{{page}}.htm\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/novels/class/5/{{page}}.htm\"},\n    {\"title\": \"科幻空间\", \"url\": \"/novels/class/6/{{page}}.htm\"},\n    {\"title\": \"悬疑惊悚\", \"url\": \"/novels/class/7/{{page}}.htm\"},\n    {\"title\": \"同人小说\", \"url\": \"/novels/class/8/{{page}}.htm\"},\n    {\"title\": \"官场职场\", \"url\": \"/novels/class/10/{{page}}.htm\"},\n    {\"title\": \"青春校园\", \"url\": \"/novels/class/12/{{page}}.htm\"}\n]",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\"}",
+    "loginCheckJs": "let curUrl = result.url();\nlet bodyStr = result.body();\nlet isSearch = curUrl.includes(\"/modules/article/search.php\");\nlet isVerified = bodyStr.includes(\"Just a moment...\") || bodyStr.includes(\"onloadTurnstileCallback\");\n\nif (!isSearch && isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${curUrl}${curUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    result = java.startBrowserAwait(freshUrl, \"Authentication\");\n} else {\n    result = result;\n}",
+    "ruleBookInfo": {
+        "author": "div.booknav2>p:first-of-type>a@text",
+        "coverUrl": "<js>\nlet bookId = baseUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://static.69shuba.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "div.navtxt>p@html",
+        "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+\\.?\\d*万?字?\\s?\\|\\s?)##",
+        "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text##(^\\d+\\.?)##",
+        "name": "div.booknav2>h1@text",
+        "tocUrl": "a.btn.more-btn@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##"
+    },
+    "ruleContent": {
+        "content": "div.txtnav@html",
+        "replaceRegex": "<js>\nresult = result.replace(/.*\\n/,\"\").replace(/.*\\n/,\"\").replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+    },
+    "ruleExplore": {
+        "author": "div.labelbox>label:first-of-type@text",
+        "bookList": "div.newbox>ul>li",
+        "bookUrl": "h3>a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://static.69shuba.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "ol.ellipsis_2@text",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text##(\\d+\\.?\\d*万?字?)##",
+        "lastChapter": "div.zxzj>p@ownText",
+        "name": "h3>a@text",
+        "wordCount": "div.labelbox>label:last-of-type@text##(^\\D+)##"
+    },
+    "ruleSearch": {
+        "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
+        "bookList": "<js>\nlet option = {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": `searchkey=${java.get(\"searchkey\")}&submit=Search`,\n    \"headers\": JSON.stringify({\"Cookie\": java.getCookie(baseUrl)})\n};\n\nlet isVerified = result.includes(\"Just a moment...\") || result.includes(\"onloadTurnstileCallback\");\nlet isTooFast = result.includes(\"搜索的间隔时间\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    java.startBrowserAwait(freshUrl, \"Authentication\");\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else if (isTooFast) {\n    java.toast(\"❗搜索过于频繁\");\n    Packages.java.lang.Thread.sleep(5000);\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else {\n    result = result;\n}\n</js>\ndiv.newbox>ul>li",
+        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "checkKeyWord": "不许没收我的人籍",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.shucdn.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "ol.ellipsis_2@html",
+        "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
+        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}",
+        "name": "div.newbox>ul>li>div.newnav>h3@text"
+    },
+    "ruleToc": {
+        "chapterList": "-#catalog>ul>li",
+        "chapterName": "#catalog>ul>li>a@text##(^\\d+\\.?)##",
+        "chapterUrl": "#catalog>ul>li>a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>"
+    },
+    "searchUrl": "<js>java.put(\"searchkey\",key)</js>\nhttps://www.69shuba.com/modules/article/search.php, {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": \"searchkey={{key}}&submit=Search\",\n    \"headers\": \"{\\\"Cookie\\\": {{java.getCookie(baseUrl)}}}\"\n}",
+    "weight": 95
+}

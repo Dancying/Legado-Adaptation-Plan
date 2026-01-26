@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - 书源失效</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; color: #333; }
+        .error-card { max-width: 600px; margin: auto; padding: 25px; border: 1px solid #ffccc7; background: #fff2f0; border-radius: 12px; }
+        .hidden { display: none !important; }
+        .repo-url { color: #0969da; font-weight: bold; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <h2>此书源已失效 (404)</h2>
+        <p>最新的订阅导入地址请前往 GitHub 仓库获取：</p>
+        <p class="repo-url">https://github.com/Dancying/Legado-Adaptation-Plan</p>
+    </div>
+
+    <div class="hidden">
+        {# --- 1. 69SHUBA (sixnine) --- #}
+        {% if site == 'sixnine' %}
+        <section>
+            <div class="booknav2">
+                <h1>书源已失效请更新</h1>
+                <p><a>Dancying</a></p>
+                <p>分类：错误</p>
+            </div>
+            <div class="navtxt">
+                <p>【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</p>
+            </div>
+            <div id="catalog"><ul><li><a href="{{ url }}">请前往仓库获取最新导入地址</a></li></ul></div>
+            <div class="txtnav">【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</div>
+        </section>
+
+        {# --- 2. PIAOTIAN (flysky) --- #}
+        {% elif site == 'flysky' %}
+        <section>
+            <table><tbody><tr>
+                <td>类&nbsp;&nbsp;&nbsp; 别：错误反馈</td>
+                <td>作&nbsp;&nbsp;&nbsp; 者：Dancying</td>
+                <td>文章状态：已失效</td>
+                <td>全文长度：0字</td>
+            </tr></tbody></table>
+            <div id="content">
+                <span><h1>书源已失效请更新</h1></span>
+                <table><caption><a href="{{ url }}">查看全部章节</a></caption></table>
+                <table>
+                    <tbody>
+                        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+                        <tr> <td><table><tbody><tr>
+                                <td>封面占位</td>
+                                <td> <div>【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</div>
+                                </td>
+                            </tr></tbody></table></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</p>
+            </div>
+            <div class="centent"><ul><li><a href="{{ url }}">请前往仓库获取最新导入地址</a></li></ul></div>
+        </section>
+
+        {# --- 3. TWKAN (twkan) --- #}
+        {% elif site == 'twkan' %}
+        <section>
+            <div class="booknav2">
+                <h1><a>书源已失效请更新</a></h1>
+                <p><a>Dancying</a></p>
+                <p>0字</p>
+            </div>
+            <div class="navtxt">
+                <p>【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</p>
+            </div>
+            <a class="btn more-btn" href="/book/0.html">更多</a>
+            <ul><li><a href="{{ url }}">请前往仓库获取最新导入地址</a></li></ul>
+            <div id="txtcontent0">【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</div>
+        </section>
+
+        {# --- 4. 69SHUX (shux) --- #}
+        {% elif site == 'shux' %}
+        <section>
+            <div class="booknav2">
+                <h1><a>书源已失效请更新</a></h1>
+                <p><a>Dancying</a></p>
+            </div>
+            <div class="navtxt">
+                <p>【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</p>
+            </div>
+            <a class="btn more-btn" href="/book/0.html">更多</a>
+            <ul><li><a href="{{ url }}">请前往仓库获取最新导入地址</a></li></ul>
+            <div id="txtcontent">【书源提醒】当前书源已失效，请前往 GitHub 仓库获取最新订阅导入地址：https://github.com/Dancying/Legado-Adaptation-Plan</div>
+        </section>
+        {% endif %}
+    </div>
+</body>
+</html>
