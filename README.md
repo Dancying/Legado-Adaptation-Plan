@@ -59,6 +59,7 @@ podman build -t localhost/novel-service:latest .
 ```shell
 podman run -d \
   --name novel-service \
+  --restart always \
   -p 39966:39966 \
   -e BASE_URL="https://api.dancying.cn" \
   --shm-size=1g \
