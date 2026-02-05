@@ -11,7 +11,7 @@ BROWSER_PROFILE_DIR = TEMP_DIR / "profile"
 
 # Logs settings
 LOGS_LEVEL = "INFO"
-LOGS_FORMAT = "%(asctime)s | %(levelname)-8s | PID:%(process)d | TID:%(thread)-6d | %(module)-18s:%(lineno)-3d - %(message)s"
+LOGS_FORMAT = "%(asctime)s | %(levelname)-8s | PID:%(process)d | %(threadName)s | %(module)-18s:%(lineno)-3d - %(message)s"
 
 # Browser cdp settings
 BROWSER_CDP_HOST = "http://127.0.0.1"
