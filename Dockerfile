@@ -32,6 +32,7 @@ RUN pip install --no-cache-dir -i https://mirrors.ustc.edu.cn/pypi/web/simple -r
     find /usr/local -depth -name '__pycache__' -exec rm -rf {} ';'
 
 COPY --chown=novel:novel . .
+RUN chown -R novel:novel /novel
 
 USER novel
 
