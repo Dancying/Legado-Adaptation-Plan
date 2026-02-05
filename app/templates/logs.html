@@ -177,7 +177,7 @@
         }
 
         function linkify() {
-            const pattern = /(https?:\/\/[^\s]+)/g;
+            const pattern = /(https?:\/\/[^\s<>"'\[\]{}()]+(?<![.,!?:;?]))/g;
             document.querySelectorAll('.log-line').forEach(line => {
                 line.innerHTML = line.innerHTML.replace(pattern, '<a href="$1" target="_blank">$1</a>');
             });
