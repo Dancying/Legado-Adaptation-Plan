@@ -48,13 +48,8 @@ https://api.dancying.cn/legado/BookSource.json
 克隆项目仓库到本地，然后在项目根目录中执行以下命令构建 podman 镜像：  
 
 ```shell
-podman build \
-  --build-arg BASE_URL="https://api.dancying.cn" \
-  --build-arg API_PREFIX="/legado" \
-  -t localhost/novel-service:latest .
+podman build -t localhost/novel-service:latest .
 ```
-
-> 构建命令中的 `BASE_URL` 参数需要自行替换为云服务器的实际地址。  
 
 
 ### 2. 运行镜像
@@ -64,12 +59,16 @@ podman build \
 ```shell
 podman run -d \
   --name novel-service \
+  --restart always \
   -p 39966:39966 \
+  -e BASE_URL="https://api.dancying.cn" \
   --shm-size=1g \
   --log-opt max-size=20mb \
   --log-opt max-file=3 \
   localhost/novel-service:latest
 ```
+
+> 运行命令中的 `BASE_URL` 参数需要自行替换为云服务器的实际地址。  
 
 
 ### 3. 反向代理

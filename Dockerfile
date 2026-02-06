@@ -1,11 +1,11 @@
 FROM python:3.11-slim-bookworm
 
-ARG BASE_URL="https://api.dancying.cn"
-ARG API_PREFIX="/legado"
-
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     TZ=Asia/Shanghai \
+    GUNICORN_THREADS=8 \
+    BASE_URL="https://api.dancying.cn" \
+    API_PREFIX="/legado" \
     PORT=39966
 
 WORKDIR /novel
@@ -32,12 +32,10 @@ RUN pip install --no-cache-dir -i https://mirrors.ustc.edu.cn/pypi/web/simple -r
     find /usr/local -depth -name '__pycache__' -exec rm -rf {} ';'
 
 COPY --chown=novel:novel . .
-RUN sed -i "s|BASE_URL = .*|BASE_URL = \"${BASE_URL}\"|g" config.py && \
-    sed -i "s|API_PREFIX = .*|API_PREFIX = \"${API_PREFIX}\"|g" config.py && \
-    chown -R novel:novel /novel
+RUN chown -R novel:novel /novel
 
 USER novel
 
 EXPOSE $PORT
 
-CMD ["sh", "-c", "exec gunicorn main:app -b 0.0.0.0:$PORT -w 4"]
+CMD ["sh", "-c", "exec gunicorn main:app -b 0.0.0.0:$PORT --workers 1 --threads $GUNICORN_THREADS --worker-class gthread"]

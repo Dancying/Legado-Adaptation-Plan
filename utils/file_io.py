@@ -41,7 +41,7 @@ def save_cookies(cookies: dict, filename: str) -> None:
 def get_log_names() -> list[str]:
     result = []
     for filename in listdir(config.LOGS_DIR):
-        if filename.endswith(".log"):
+        if filename.startswith("novelservice.log"):
             result.append(filename)
     result.sort(key=lambda x: os.path.getmtime(os.path.join(config.LOGS_DIR, x)), reverse=True)
     return result
