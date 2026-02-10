@@ -1,5 +1,5 @@
 {
-    "bookSourceComment": "✨ 本书源在他人书源基础上修改而来，仅作微调。\n\n✒️ 书源修改： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado\n\n\nℹ️ 以下为原始书源信息：\n💻 原发布者： chiyu666\n💻 原发布页： https://www.yckceo.com/yuedu/shuyuan/content/id/6280.html",
+    "bookSourceComment": "✨ 本书源在他人书源基础上修改而来，略微调整。\n\n✒️ 书源修改： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado\n\n\nℹ️ 以下为原始书源信息：\n💻 原发布者： chiyu666\n💻 原发布页： https://www.yckceo.com/yuedu/shuyuan/content/id/6280.html",
     "bookSourceGroup": "General,Cloudflare",
     "bookSourceName": "幻梦轻小说",
     "bookSourceType": 0,
@@ -23,8 +23,9 @@
     },
     "ruleContent": {
         "content": "#BookText@p@html",
-        "imageStyle": "SINGLE",
-        "nextContentUrl": "text.下一页@href"
+        "imageStyle": "FULL",
+        "nextContentUrl": "text.下一页@href",
+        "replaceRegex": "<js>\n// 先进行广告文案的替换以防止内存溢出\nresult = result.replace(/.*点击广告.*aifun.*\\n-*\\n?/, \"\").replace(/\\n?.*幻梦轻小说\\n|.*huanmengacg\\.com.*\\n?/g, \"\");\n\nlet imgRegex = /<img\\s+src=\"([^\">]+)\">/g;\nlet match;\n\nwhile ((match = imgRegex.exec(result)) !== null) {\n    // 下载图片并读取字节后立即清理缓存\n    let path = java.downloadFile(match[1]);\n    let bytes = java.readFile(path);\n    java.deleteFile(path);\n\n    // 仅截取前 20 字节判定是否进入验证页面\n    if (java.bytesToStr(bytes.slice(0, 20)).trim().startsWith(\"<\")) {\n        java.toast(\"❗身份验证过期\");\n        java.startBrowserAwait(`${match[1]}${match[1].includes('?') ? '&' : '?'}_t=${Date.now()}`, \"Authentication\");\n        \n        // 验证完成后重新下载该图片\n        path = java.downloadFile(match[1]);\n        bytes = java.readFile(path);\n        java.deleteFile(path);\n    }\n\n    // 替换原标签为原生 Base64 编码格式\n    result = result.replace(match[0], `<img src=\"data:image/jpeg;base64,${android.util.Base64.encodeToString(bytes, 2)}\">`);\n}\n\nresult;\n</js>"
     },
     "ruleExplore": {
         "author": ".book-module@class.pipe-z@text",

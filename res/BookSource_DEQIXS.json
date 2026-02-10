@@ -22,8 +22,18 @@
     "ruleContent": {
         "content": "<js>\n// 从 baseUrl 提取书籍 ID 和章节 ID\nlet aid = baseUrl.match(/books\\/(\\d+)\\//)[1];\nlet cid = baseUrl.match(/\\/(\\d+)\\.html/)[1];\n\n// 从页面源码中提取服务器预置的校验参数\nlet token = result.match(/chapterToken\\s*[:=]\\s*'([^']+)'/)[1];\nlet timestamp = result.match(/timestamp\\s*[:=]\\s*(\\d+)/)[1];\nlet nonce = result.match(/nonce\\s*[:=]\\s*'([^']+)'/)[1];\n\n// 构造包含校验信息的请求参数字符串\nlet params = `aid=${aid}&cid=${cid}&token=${token}&timestamp=${timestamp}&nonce=${nonce}`;\n\n// 定义包含 gbk 编码和移动端 UA 的请求配置\nlet options = {\n    \"charset\": \"gbk\",\n    \"headers\": {\n        \"Referer\": baseUrl,\n        \"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\",\n        \"X-Requested-With\": \"XMLHttpRequest\"\n    }\n};\n\n// 发起异步请求并提取返回 JSON 中的正文内容\nresult = JSON.parse(java.ajax(`https://www.deqixs.co/modules/article/ajax2.php?${params},${JSON.stringify(options)}`)).data.content;\n</js>",
         "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\n// 批量清理官方广告及推广干扰语\nlet officialRules = [/更新不易.+?看最新章节！/g, /更新不易.+?看最新无错章节！/g, /更新不易.+?最新小说章节！/g, /速读谷/g, /速.读.谷/g, /速 读 谷/g, /本章节未完.+?请订阅/g];\nofficialRules.forEach(rule => result = result.replace(rule, \"\"));\n\nresult;\n</js>",
-        "title": "li.active@text",
-        "webJs": ""
+        "title": "li.active@text"
+    },
+    "ruleExplore": {
+        "author": "div.bookinfo>div:first-of-type@text##(作者：\\s?)##",
+        "bookList": "div.bookbox",
+        "bookUrl": "h4>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"h4>a\").attr(\"href\");\nlet bookId = bookUrl.match(/(\\d+)/)[1];\nlet imageBaseUrl = \"https://www.deqixs.co/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "div.update@textNodes",
+        "kind": "div.bookinfo>div:nth-of-type(3)@text",
+        "lastChapter": "div.cat>a@text",
+        "name": "h4>a@text",
+        "wordCount": "div.bookinfo>div:nth-of-type(2)>script@html##(\\D*)##"
     },
     "ruleSearch": {
         "author": "div.bookinfo>div:first-of-type@text##(作者：\\s?)##",

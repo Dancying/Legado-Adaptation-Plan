@@ -21,9 +21,9 @@
     },
     "ruleContent": {
         "content": "div.con@html",
-        "nextContentUrl": "div.prenext>span:last-of-type>a@href",
+        "nextContentUrl": "div.prenext>span:last-of-type>a@href\n<js>result = /\\d+-\\d\\d?\\.html/.test(result) ? result : null</js>",
         "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
-        "title": "h1@textNodes##(>\\s?)##"
+        "title": "h1@textNodes##(^\\s?>\\s?)##"
     },
     "ruleSearch": {
         "author": "div.itemtxt>p:nth-of-type(2)@text##(作者：\\s?)##",
@@ -37,7 +37,8 @@
     "ruleToc": {
         "chapterList": "#list>ul>li",
         "chapterName": "a@text",
-        "chapterUrl": "a@href"
+        "chapterUrl": "a@href",
+        "nextTocUrl": "a.gr@href"
     },
     "searchUrl": "https://www.sudugu.org/i/sor.aspx?key={{key}}&p={{page}}",
     "weight": 95

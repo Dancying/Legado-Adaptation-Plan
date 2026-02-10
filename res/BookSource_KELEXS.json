@@ -1,10 +1,10 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源有多个马甲站点，当前默认是可乐站点。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源有多个马甲站点，当前默认是可乐站点。\n✨ 本书源如果请求太过于频繁，容易被网站封禁。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "General",
     "bookSourceName": "可乐小说",
     "bookSourceType": 0,
     "bookSourceUrl": "https://www.kelexs.com/",
-    "concurrentRate": "1500",
+    "concurrentRate": "2000",
     "customOrder": 22,
     "enabled": true,
     "enabledCookieJar": true,
@@ -22,7 +22,7 @@
     },
     "ruleContent": {
         "content": "div.content@html",
-        "nextContentUrl": "div[class=\"btnW font16\"]>a:last-of-type@href",
+        "nextContentUrl": "div[class=\"btnW font16\"]>a:last-of-type@href\n<js>result = /-\\d+-\\d\\d?\\.html/.test(result) ? result : null</js>",
         "replaceRegex": "<js>let s=new Set();result=result.replace(/.*(人人书库|renrenshuku|kelexs).*\\n?/gi,\"\").split(/\\n+/).filter(l=>{let t=l.trim();return t&&!s.has(t)&&s.add(t)}).join(\"\\n\")</js>",
         "title": "h1.title@text"
     },
@@ -40,7 +40,6 @@
         "author": "div[class=\"info\"]>dl:first-of-type>dd>a@text",
         "bookList": "div[class=\"list dList\"]>ul>li",
         "bookUrl": "div.pic@html\n<js>\nbookId = result.match(/upclick\\('(\\w+)'\\)/)[1];\nresult = `https://www.kelexs.com/book/${bookId}.html`;\n</js>",
-        "checkKeyWord": "闭嘴恶龙我不想再跟你带孩子了",
         "coverUrl": "div.pic>a>img@src",
         "intro": "div.intro@html",
         "kind": "div[class=\"info\"]>dl:nth-of-type(2)>dd>a@text",
