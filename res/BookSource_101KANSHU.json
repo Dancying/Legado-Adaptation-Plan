@@ -1,11 +1,11 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络无法使用，需要切换网络使用。\n✨ 本书源目录页和正文页或会触发人机验证页面。\n✨ 本书源正文保留繁体，阅读界面可以转为简体。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络无法使用，需要国外网络使用。\n✨ 本书源目录页和正文页或会触发人机验证页面。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "VPN,Cloudflare",
     "bookSourceName": "101看书",
     "bookSourceType": 0,
     "bookSourceUrl": "https://101kks.com/",
     "concurrentRate": "1500",
-    "customOrder": 23,
+    "customOrder": 12,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
@@ -20,16 +20,18 @@
         "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.booknav2>p:nth-of-type(4)@text##(\\d.+字\\s?\\|\\s?|更新\\D+)##",
         "lastChapter": "ul.qustime>li:first-of-type>a>span@text",
         "name": "h1>a@text",
-        "tocUrl": "a[class=\"btn more-btn\"]@href\n<js>`https://101kks.com/ajax_novels/chapterlist/${result.match(/book\\D+(\\d+)\\D+/)[1]}.html,${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "tocUrl": "a[class=\"btn more-btn\"]@href\n<js>`https://101kks.com/ajax_novels/chapterlist/${result.match(/book\\D+(\\d+)\\D+/)[1]}.html`</js>",
         "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\D+)##"
     },
     "ruleContent": {
-        "content": "#txtcontent@html"
+        "content": "<js>java.t2s(result)</js>\n#txtcontent@html",
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 兼容性匹配并仅移除一次包含“101”及关键词或特殊字符网址的广告行\nresult = result.replace(/^\\s*.*101.*(?:看书网|[a-z\\.（）\\u2100-\\u214F\\uD835]+).*\\n?/m, \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "<js>java.t2s(result)</js>\nh1@text"
     },
     "ruleSearch": {
         "author": "div.labelbox>label:first-of-type@text",
         "bookList": "<js>java.t2s(result)</js>\n#article_list_content>li",
-        "bookUrl": "h3>a:last-of-type@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "bookUrl": "h3>a:last-of-type@href",
         "coverUrl": "li>a>img@data-src",
         "intro": "ol.ellipsis_2@html",
         "kind": "div.labelbox>label:not(label:first-of-type)@text",
@@ -39,8 +41,8 @@
     "ruleToc": {
         "chapterList": "<js>java.t2s(result)</js>\nul>li",
         "chapterName": "a@text",
-        "chapterUrl": "a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>"
+        "chapterUrl": "a@href"
     },
     "searchUrl": "/search/{{key.replace(/[！？]+$/, '').slice(-2)}}/{{page}}.html",
-    "weight": 90
+    "weight": 95
 }

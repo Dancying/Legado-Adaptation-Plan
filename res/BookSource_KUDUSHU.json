@@ -1,0 +1,58 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源所有的请求链接都有可能触发人机验证。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "General,Cloudflare",
+    "bookSourceName": "苦读书",
+    "bookSourceType": 0,
+    "bookSourceUrl": "http://www.kudushu.org/",
+    "concurrentRate": "1500",
+    "customOrder": 26,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🥞🥞🥞作品分类🥞🥞🥞\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"全部\", \"url\": \"/modules/article/articlefilter.php?page={{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=1\"},\n    {\"title\": \"武侠修真\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=2\"},\n    {\"title\": \"都市言情\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=3\"},\n    {\"title\": \"历史军事\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=4\"},\n    {\"title\": \"侦探推理\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=5\"},\n    {\"title\": \"网游动漫\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=6\"},\n    {\"title\": \"科幻小说\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=7\"},\n    {\"title\": \"恐怖灵异\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=8\"},\n    {\"title\": \"言情小说\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=9\"},\n    {\"title\": \"其他类型\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=10\"},\n    {\"title\": \"经部\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=11\"},\n    {\"title\": \"史书\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=12\"},\n    {\"title\": \"子部\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=13\"},\n    {\"title\": \"集部\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=14\"},\n    {\"title\": \"四库之外\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=15\"},\n    {\"title\": \"古典书籍\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=16\"},\n    {\"title\": \"诗歌\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=17\"},\n    {\"title\": \"宋词\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&sortid=18\"},\n\n    {\"title\": \"🧇🧇🧇作品字数🧇🧇🧇\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"不限\", \"url\": \"/modules/article/articlefilter.php?page={{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"30万以下\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&size=1\"},\n    {\"title\": \"30-50万\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&size=2\"},\n    {\"title\": \"50-100万\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&size=3\"},\n    {\"title\": \"100-200万\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&size=4\"},\n    {\"title\": \"200万以上\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&size=5\"},\n\n    {\"title\": \"🍞🍞🍞排序方式🍞🍞🍞\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"周点击\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=weekvisit\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"月点击\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=monthvisit\"},\n    {\"title\": \"总点击\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=allvisit\"},\n    {\"title\": \"周推荐\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=weekvote\"},\n    {\"title\": \"月推荐\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=monthvote\"},\n    {\"title\": \"总推荐\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=allvote\"},\n    {\"title\": \"周鲜花\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=weekflower\"},\n    {\"title\": \"月鲜花\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=monthflower\"},\n    {\"title\": \"总鲜花\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=allflower\"},\n    {\"title\": \"总月票\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=allvipvote\"},\n    {\"title\": \"字数\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=size\"},\n    {\"title\": \"收藏数\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=goodnum\"},\n    {\"title\": \"更新时间\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=lastupdate\"},\n    {\"title\": \"入库时间\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=postdate\"},\n    {\"title\": \"编辑推荐\", \"url\": \"/modules/article/articlefilter.php?page={{page}}&order=toptime\"}\n]",
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\"}",
+    "loginCheckJs": "let curUrl = result.url();\nlet bodyStr = result.body();\nlet isVerified = bodyStr.includes(\"Just a moment...\") || bodyStr.includes(\"onloadTurnstileCallback\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${curUrl}${curUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    result = java.startBrowserAwait(freshUrl, \"Authentication\");\n} else {\n    result = result;\n}",
+    "ruleBookInfo": {
+        "author": "div[style=\"text-align:center;\"]>span:last-of-type>a@text",
+        "coverUrl": "img[style=\"border:1px solid #cccccc;width:100%;\"]@src",
+        "intro": "div[style=\"padding:3px;border:0;height:100%;width:100%;overflow-y:scroll;\"]@html",
+        "kind": "div.tabvalue>table>tbody>tr:first-of-type>td@text##(\\S*：\\s?)|(\\d\\d:\\d\\d:\\d\\d)##",
+        "lastChapter": "div.divbox>h3>a@text",
+        "name": "span[style=\"font-size:20px;font-weight:bold;color:#f27622;\"]@text",
+        "tocUrl": "a[class=\"btnlink b_hot mbs\"]@href",
+        "wordCount": "tbody>tr:nth-of-type(3)>td:first-of-type@text##(\\S*：\\s?)##"
+    },
+    "ruleContent": {
+        "content": "#clickeye_content@html",
+        "replaceRegex": "<js>\n// 全局清理包含“苦读书”名称及网址的广告文本\nresult = result.replace(/\\n?\\(?苦读书\\s+(www\\.)?kudushu\\.org\\)?\\s?/g, \"\");\n\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@text"
+    },
+    "ruleExplore": {
+        "author": "tr>td:nth-of-type(3)@text",
+        "bookList": "#jieqi_page_contents>tr",
+        "bookUrl": "a.pop@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a.pop\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"http://www.kudushu.org/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "kind": "tr>td:nth-of-type(5)@text&&tr>td:nth-of-type(6)@text",
+        "lastChapter": "tr>td:nth-of-type(2)>a@text",
+        "name": "a.pop@text",
+        "wordCount": "tr>td:nth-of-type(4)@text"
+    },
+    "ruleSearch": {
+        "author": "div.c_row>div:nth-of-type(2)>div:nth-of-type(2)>span:nth-of-type(2)@text",
+        "bookList": "div.c_row",
+        "bookUrl": "span.c_subject>a@href",
+        "coverUrl": "div.fl>a>img@src",
+        "intro": "div.c_description@html",
+        "kind": "div.c_tag>span:nth-of-type(4)@text&&div.c_tag>span:nth-of-type(8)@text",
+        "lastChapter": "span.c_value>a@text",
+        "name": "span.c_subject>a@text",
+        "wordCount": "div.c_tag>span:nth-of-type(6)@text"
+    },
+    "ruleToc": {
+        "chapterList": "ul.chapters>li",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href"
+    },
+    "searchUrl": "/modules/article/search.php?q={{key}}",
+    "weight": 90
+}

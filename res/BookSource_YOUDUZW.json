@@ -1,6 +1,6 @@
 {
     "bookSourceComment": "✨ 本书源在他人书源基础上修改而来，仅作微调。\n\n✒️ 书源修改： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado\n\n\nℹ️ 以下为原始书源信息：\n💻 原发布者： rain-sheng4568\n💻 原发布页： https://www.yckceo.com/yuedu/shuyuan/content/id/6720.html",
-    "bookSourceGroup": "General,Cloudflare",
+    "bookSourceGroup": "VPN,Cloudflare",
     "bookSourceName": "有度中文网",
     "bookSourceType": 0,
     "bookSourceUrl": "https://www.youduzw.com/",
@@ -23,7 +23,6 @@
         "kind": "[property~=category|status|update_time]@content",
         "lastChapter": "[property$=latest_chapter_name]@content",
         "name": "[property$=title]@content",
-        "tocUrl": "<js>`${baseUrl},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
         "wordCount": "h1+p@span.-1@text"
     },
     "ruleContent": {
@@ -33,7 +32,7 @@
     "ruleExplore": {
         "author": "strong.0@text",
         "bookList": ".j_bookList li",
-        "bookUrl": "a.-1@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "bookUrl": "a.-1@href",
         "coverUrl": "img@_src",
         "intro": "a.-1@text",
         "kind": "strong!0@span@text",
@@ -41,8 +40,8 @@
     },
     "ruleSearch": {
         "author": ".mr10.1@text",
-        "bookList": "<js>\nlet option = {\n    \"method\": \"POST\",\n    \"body\": `searchkey=${java.get(\"searchkey\")}&searchtype=all`,\n    \"headers\": JSON.stringify({\"Cookie\": java.getCookie(baseUrl)})\n};\n\nlet isVerified = result.includes(\"Just a moment...\") || result.includes(\"onloadTurnstileCallback\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    java.startBrowserAwait(freshUrl, \"Authentication\");\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else {\n    result = result;\n}\n</js>\n#hism",
-        "bookUrl": "a.0@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "bookList": "<js>\nlet option = {\n    \"method\": \"POST\",\n    \"body\": `searchkey=${java.get(\"searchkey\")}&searchtype=all`\n};\n\nlet isVerified = result.includes(\"Just a moment...\") || result.includes(\"onloadTurnstileCallback\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    java.startBrowserAwait(freshUrl, \"Authentication\");\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else {\n    result = result;\n}\n</js>\n#hism",
+        "bookUrl": "a.0@href",
         "checkKeyWord": "为美好的世界献上祝福",
         "coverUrl": "img@_src",
         "intro": "p.-2@text",
@@ -53,7 +52,7 @@
     "ruleToc": {
         "chapterList": "#chapterList>li",
         "chapterName": "span@text",
-        "chapterUrl": "a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "chapterUrl": "a@href",
         "isVolume": "li[class=\"volumes ell\"]"
     },
     "searchUrl": "<js>java.put(\"searchkey\",key)</js>\n/sa,{\"body\": \"searchkey={{key}}&searchtype=all\",\"method\": \"POST\"}",

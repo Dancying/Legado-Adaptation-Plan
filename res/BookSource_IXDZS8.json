@@ -5,7 +5,7 @@
     "bookSourceType": 0,
     "bookSourceUrl": "https://ixdzs8.com/",
     "concurrentRate": "1500",
-    "customOrder": 31,
+    "customOrder": 23,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
@@ -19,12 +19,13 @@
         "kind": "a.nsort@text&&span.lz@text&&div.n-text>p:last-of-type@text##(更新:?|\\s\\d+:\\d+:\\d+)##",
         "lastChapter": "div.n-text>p>a[href$=\".html\"]@text##(^\\d+\\.?)##",
         "name": "div.n-text>h1@text",
-        "tocUrl": "<js>java.put(\"bookUrl\",baseUrl)</js>\nhttps://ixdzs8.com/novel/clist/,{\n    \"method\": \"POST\",\n    \"body\": \"bid={{baseUrl.split(\"/\")[4]}}\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\"}\n}",
+        "tocUrl": "<js>java.put(\"bookUrl\",baseUrl)</js>\nhttps://ixdzs8.com/novel/clist/,{\n    \"method\": \"POST\",\n    \"body\": \"bid={{baseUrl.split(\"/\")[4]}}\"\n}",
         "wordCount": "span.nsize@text"
     },
     "ruleContent": {
         "content": "<js>\nif (result.includes(\"正在验证浏览器\")) {\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    result = java.webView(null, freshUrl, null);\n} else { result }\n</js>\narticle.page-content>section>p:not(.abg)@html",
-        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\S*{{title.substr(-1)}}\\S*\\s+|\\s*\\(?本章完\\)?|\\s*更新\\S*\\d+-\\d+-\\d+\\s+)##"
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@text"
     },
     "ruleSearch": {
         "author": "span.bauthor>a@text",
@@ -44,5 +45,5 @@
         "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html"
     },
     "searchUrl": "/bsearch?q={{key}}&page={{page}}",
-    "weight": 85
+    "weight": 90
 }

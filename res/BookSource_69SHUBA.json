@@ -1,11 +1,11 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络无法使用，需要切换网络使用。\n✨ 本书源在搜索或正文页或会触发人机验证页面。\n✨ 本书源有搜索频率限制，两次间隔要大于五秒。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络无法使用，需要国外网络使用。\n✨ 本书源在搜索或正文页或会触发人机验证页面。\n✨ 本书源有搜索频率限制，两次间隔要大于五秒。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "VPN,Cloudflare",
     "bookSourceName": "69书吧",
     "bookSourceType": 0,
     "bookSourceUrl": "https://www.69shuba.com/",
     "concurrentRate": "1500",
-    "customOrder": 11,
+    "customOrder": 6,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
@@ -14,45 +14,46 @@
     "loginCheckJs": "let curUrl = result.url();\nlet bodyStr = result.body();\nlet isSearch = curUrl.includes(\"/modules/article/search.php\");\nlet isVerified = bodyStr.includes(\"Just a moment...\") || bodyStr.includes(\"onloadTurnstileCallback\");\n\nif (!isSearch && isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${curUrl}${curUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    result = java.startBrowserAwait(freshUrl, \"Authentication\");\n} else {\n    result = result;\n}",
     "ruleBookInfo": {
         "author": "div.booknav2>p:first-of-type>a@text",
-        "coverUrl": "<js>\nlet bookId = baseUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://static.69shuba.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "coverUrl": "<js>\nlet bookId = baseUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.cdnshu.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "intro": "div.navtxt>p@html",
         "kind": "div.booknav2>p:nth-of-type(2)>a@text&&div.booknav2>p:nth-of-type(3)@text&&div.qustime>ul>li:first-of-type>a>small@text##(\\d+\\.?\\d*万?字?\\s?\\|\\s?)##",
         "lastChapter": "div.qustime>ul>li:first-of-type>a>span@text##(^\\d+\\.?)##",
         "name": "div.booknav2>h1@text",
-        "tocUrl": "a.btn.more-btn@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "tocUrl": "a.btn.more-btn@href",
         "wordCount": "div.booknav2>p:nth-of-type(3)@text##(\\s\\|\\s\\S*)##"
     },
     "ruleContent": {
         "content": "div.txtnav@html",
-        "replaceRegex": "<js>\nresult = result.replace(/.*\\n/,\"\").replace(/.*\\n/,\"\").replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s+?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+        "replaceRegex": "<js>\n// 移除正文开头前两行的冗余内容\nresult = result.replace(/^(.*\\n){2}/, \"\");\n\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@text##(^\\d+\\.?)##"
     },
     "ruleExplore": {
         "author": "div.labelbox>label:first-of-type@text",
         "bookList": "div.newbox>ul>li",
-        "bookUrl": "h3>a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
-        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://static.69shuba.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "bookUrl": "h3>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.cdnshu.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "intro": "ol.ellipsis_2@text",
         "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text##(\\d+\\.?\\d*万?字?)##",
-        "lastChapter": "div.zxzj>p@ownText",
+        "lastChapter": "div.zxzj>p@ownText##(^\\d+\\.?)##",
         "name": "h3>a@text",
         "wordCount": "div.labelbox>label:last-of-type@text##(^\\D+)##"
     },
     "ruleSearch": {
         "author": "div.newbox>ul>li>div.newnav>div.labelbox>label:first-of-type@text",
-        "bookList": "<js>\nlet option = {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": `searchkey=${java.get(\"searchkey\")}&submit=Search`,\n    \"headers\": JSON.stringify({\"Cookie\": java.getCookie(baseUrl)})\n};\n\nlet isVerified = result.includes(\"Just a moment...\") || result.includes(\"onloadTurnstileCallback\");\nlet isTooFast = result.includes(\"搜索的间隔时间\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    java.startBrowserAwait(freshUrl, \"Authentication\");\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else if (isTooFast) {\n    java.toast(\"❗搜索过于频繁\");\n    Packages.java.lang.Thread.sleep(5000);\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else {\n    result = result;\n}\n</js>\ndiv.newbox>ul>li",
-        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>",
+        "bookList": "<js>\nlet option = {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": `searchkey=${java.get(\"searchkey\")}&submit=Search`\n};\n\nlet isVerified = result.includes(\"Just a moment...\") || result.includes(\"onloadTurnstileCallback\");\nlet isTooFast = result.includes(\"搜索的间隔时间\");\n\nif (isVerified) {\n    java.toast(\"❗身份验证过期\");\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    java.startBrowserAwait(freshUrl, \"Authentication\");\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else if (isTooFast) {\n    java.toast(\"❗搜索过于频繁\");\n    Packages.java.lang.Thread.sleep(5000);\n    result = java.ajax(`${baseUrl},${JSON.stringify(option)}`);\n} else {\n    result = result;\n}\n</js>\ndiv.newbox>ul>li",
+        "bookUrl": "div.newbox>ul>li>div.newnav>h3>a:last-of-type@href",
         "checkKeyWord": "不许没收我的人籍",
-        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.shucdn.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"a:first-of-type\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)\\.htm/)[1];\nlet imageBaseUrl = \"https://cdn.cdnshu.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "intro": "ol.ellipsis_2@html",
         "kind": "div.labelbox>label:not(div.labelbox>label:first-of-type)@text&&div.zxzj>span@text",
-        "lastChapter": "{{\"【该源搜索页不展示最新章节】\"}}",
+        "lastChapter": "div.zxzj>p@textNodes##(^\\d+\\.?)##",
         "name": "div.newbox>ul>li>div.newnav>h3@text"
     },
     "ruleToc": {
         "chapterList": "-#catalog>ul>li",
         "chapterName": "#catalog>ul>li>a@text##(^\\d+\\.?)##",
-        "chapterUrl": "#catalog>ul>li>a@href\n<js>`${result},${JSON.stringify({\"Cookie\": cookie.getCookie(baseUrl)})}`</js>"
+        "chapterUrl": "#catalog>ul>li>a@href"
     },
-    "searchUrl": "<js>java.put(\"searchkey\",key)</js>\nhttps://www.69shuba.com/modules/article/search.php, {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": \"searchkey={{key}}&submit=Search\",\n    \"headers\": \"{\\\"Cookie\\\": {{java.getCookie(baseUrl)}}}\"\n}",
-    "weight": 95
+    "searchUrl": "<js>java.put(\"searchkey\",key)</js>\nhttps://www.69shuba.com/modules/article/search.php, {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": \"searchkey={{key}}&submit=Search\"\n}",
+    "weight": 97
 }

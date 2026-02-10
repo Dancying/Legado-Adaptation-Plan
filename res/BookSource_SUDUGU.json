@@ -1,0 +1,44 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "General",
+    "bookSourceName": "速读谷",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.sudugu.org/",
+    "concurrentRate": "1500",
+    "customOrder": 11,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🪴🪴🪴网站分类🪴🪴🪴\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"都市小说\", \"url\": \"/dushi/{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻小说\", \"url\": \"/xuanhuan/{{page}}.html\"},\n    {\"title\": \"仙侠小说\", \"url\": \"/xianxia/{{page}}.html\"},\n    {\"title\": \"轻小说\", \"url\": \"/qing/{{page}}.html\"},\n    {\"title\": \"历史小说\", \"url\": \"/lishi/{{page}}.html\"},\n    {\"title\": \"科幻小说\", \"url\": \"/kehuan/{{page}}.html\"},\n    {\"title\": \"诸天无限\", \"url\": \"/zhutianwuxian/{{page}}.html\"},\n    {\"title\": \"游戏小说\", \"url\": \"/youxi/{{page}}.html\"},\n    {\"title\": \"奇幻小说\", \"url\": \"/qihuan/{{page}}.html\"},\n    {\"title\": \"悬疑小说\", \"url\": \"/xuanyi/{{page}}.html\"},\n    {\"title\": \"体育小说\", \"url\": \"/tiyu/{{page}}.html\"},\n    {\"title\": \"官场小说\", \"url\": \"/guanchang/{{page}}.html\"},\n    {\"title\": \"军事小说\", \"url\": \"/junshi/{{page}}.html\"},\n    {\"title\": \"武侠小说\", \"url\": \"/wuxia/{{page}}.html\"},\n    {\"title\": \"现实小说\", \"url\": \"/xianshi/{{page}}.html\"},\n    {\"title\": \"乡村小说\", \"url\": \"/xiangcun/{{page}}.html\"},\n    {\"title\": \"重生小说\", \"url\": \"/chongsheng/{{page}}.html\"},\n    {\"title\": \"言情小说\", \"url\": \"/yanqing/{{page}}.html\"}\n]",
+    "ruleBookInfo": {
+        "author": "div.itemtxt>p:nth-of-type(2)@text##(作者：\\s?)##",
+        "coverUrl": "div.item>a>img@src",
+        "intro": "div.container>div:nth-of-type(2)@html",
+        "kind": "div.itemtxt>p:nth-of-type(1)>span@text",
+        "lastChapter": "div.itemtxt>ul>li:first-of-type>a@text",
+        "name": "div.itemtxt>h1>a@text",
+        "wordCount": "div.itemtxt>h1>i@text"
+    },
+    "ruleContent": {
+        "content": "div.con@html",
+        "nextContentUrl": "div.prenext>span:last-of-type>a@href",
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@textNodes##(>\\s?)##"
+    },
+    "ruleSearch": {
+        "author": "div.itemtxt>p:nth-of-type(2)@text##(作者：\\s?)##",
+        "bookList": "div.container>div",
+        "bookUrl": "div.itemtxt>h3>a@href",
+        "coverUrl": "div.item>a>img@src",
+        "kind": "div.itemtxt>p:nth-of-type(1)>span@text",
+        "lastChapter": "div.itemtxt>ul>li:first-of-type>a@text",
+        "name": "div.itemtxt>h3>a@text"
+    },
+    "ruleToc": {
+        "chapterList": "#list>ul>li",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href"
+    },
+    "searchUrl": "https://www.sudugu.org/i/sor.aspx?key={{key}}&p={{page}}",
+    "weight": 95
+}
