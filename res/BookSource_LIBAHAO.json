@@ -9,7 +9,7 @@
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
-    "exploreUrl": "[\n    {\"title\": \"🍁🍁🍁分类列表🍁🍁🍁\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"篱笆好文学\", \"url\": \"/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/xuanhuan/\"},\n    {\"title\": \"武侠修真\", \"url\": \"/xiuzhen/\"},\n    {\"title\": \"都市言情\", \"url\": \"/dushi/\"},\n    {\"title\": \"历史军事\", \"url\": \"/lishi/\"},\n    {\"title\": \"游戏竞技\", \"url\": \"/wangyou/\"},\n    {\"title\": \"科幻灵异\", \"url\": \"/kehuan/\"},\n    {\"title\": \"女生言情\", \"url\": \"/nvpin/\"},\n    {\"title\": \"其他小说\", \"url\": \"/qita/\"}\n]",
+    "exploreUrl": "[\n    {\"title\": \"🍁🍁🍁分类列表🍁🍁🍁\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"篱笆好文学\", \"url\": \"/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/xuanhuan/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠修真\", \"url\": \"/xiuzhen/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市言情\", \"url\": \"/dushi/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史军事\", \"url\": \"/lishi/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"游戏竞技\", \"url\": \"/wangyou/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻灵异\", \"url\": \"/kehuan/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"女生言情\", \"url\": \"/nvpin/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"其他小说\", \"url\": \"/qita/\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
     "ruleBookInfo": {
         "author": "div.book-details>div:nth-of-type(2)@text##(作者：\\s?)##",
         "coverUrl": "img.book-info-cover@src",
@@ -48,5 +48,5 @@
         "chapterUrl": "a@href"
     },
     "searchUrl": "https://m.libahao.com/sou?wd={{key}}",
-    "weight": 95
+    "weight": 97
 }
