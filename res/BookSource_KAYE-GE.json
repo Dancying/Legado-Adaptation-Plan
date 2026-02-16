@@ -37,7 +37,7 @@
     },
     "ruleSearch": {
         "author": "div.item>dl>dt>span@text",
-        "bookList": "<js>\nlet isVerified = result.includes(\"DDoS\");\nif (isVerified) {\n    java.webView(null, baseUrl, null);\n    Packages.java.lang.Thread.sleep(5000);\n    result = java.ajax(baseUrl);\n} else {\n    result = result;\n}\n</js>\ndiv.item",
+        "bookList": "<js>\nlet isVerified = result.includes(\"DDoS\");\nif (isVerified) {\n    Packages.java.lang.Thread.sleep(5500);\n    result = java.ajax(baseUrl);\n} else {\n    result = result;\n}\n</js>\ndiv.item",
         "bookUrl": "div.item>dl>dt>a@href",
         "coverUrl": "div.item>div.image>a>img@src",
         "intro": "div.item>dl>dd@html",
@@ -49,6 +49,6 @@
         "chapterUrl": "a@href",
         "nextTocUrl": "div.index-container>a:last-of-type@href"
     },
-    "searchUrl": "https://www.sososhu.com/?site=kaye-ge&q={{key}}",
+    "searchUrl": "https://www.sososhu.com/?site=kaye-ge&q={{key}}, {\"webView\": true}",
     "weight": 89
 }
