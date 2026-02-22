@@ -1,0 +1,56 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源疑似从速读谷爬取数据，可当作备用源。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "General",
+    "bookSourceName": "得奇小说网",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://deqixs.co/",
+    "concurrentRate": "1500",
+    "customOrder": 15,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🍔🍔🍔全部小说🍔🍔🍔\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"玄幻小说\", \"url\": \"/sort/1/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市小说\", \"url\": \"/sort/2/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"仙侠小说\", \"url\": \"/sort/3/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史小说\", \"url\": \"/sort/4/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻小说\", \"url\": \"/sort/5/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"诸天无限\", \"url\": \"/sort/6/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"悬疑小说\", \"url\": \"/sort/7/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"体育小说\", \"url\": \"/sort/8/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"游戏小说\", \"url\": \"/sort/9/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"综合其他\", \"url\": \"/sort/10/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n\n    {\"title\": \"🥪🥪🥪排行榜单🥪🥪🥪\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"总点击榜\", \"url\": \"/top/allvisit/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月点击榜\", \"url\": \"/top/monthvisit/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"周点击榜\", \"url\": \"/top/weekvisit/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"日点击榜\", \"url\": \"/top/dayvisit/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总推荐榜\", \"url\": \"/top/allvote/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月推荐榜\", \"url\": \"/top/monthvote/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总月票榜\", \"url\": \"/top/allvipvote/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总鲜花榜\", \"url\": \"/top/allflower/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总鸡蛋榜\", \"url\": \"/top/allegg/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月勤更榜\", \"url\": \"/top/monthwords/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"周勤更榜\", \"url\": \"/top/weekwords/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"日勤更榜\", \"url\": \"/top/daywords/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最近更新\", \"url\": \"/top/lastupdate/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最新入库\", \"url\": \"/top/postdate/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"收藏榜\", \"url\": \"/top/goodnum/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"字数榜\", \"url\": \"/top/words/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"编辑推荐\", \"url\": \"/top/toptime/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"新书榜\", \"url\": \"/top/newhot/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n\n    {\"title\": \"🌭🌭🌭全本小说🌭🌭🌭\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"总点击榜\", \"url\": \"/modules/article/toplist.php?order=allvisit&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月点击榜\", \"url\": \"/modules/article/toplist.php?order=monthvisit&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"周点击榜\", \"url\": \"/modules/article/toplist.php?order=weekvisit&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"日点击榜\", \"url\": \"/modules/article/toplist.php?order=dayvisit&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总推荐榜\", \"url\": \"/modules/article/toplist.php?order=allvote&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总月票榜\", \"url\": \"/modules/article/toplist.php?order=allvipvote&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总鲜花榜\", \"url\": \"/modules/article/toplist.php?order=allflower&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总鸡蛋榜\", \"url\": \"/modules/article/toplist.php?order=allegg&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月勤更榜\", \"url\": \"/modules/article/toplist.php?order=monthwords&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最近更新\", \"url\": \"/modules/article/toplist.php?order=lastupdate&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最新入库\", \"url\": \"/modules/article/toplist.php?order=postdate&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"收藏榜\", \"url\": \"/modules/article/toplist.php?order=goodnum&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"字数榜\", \"url\": \"/modules/article/toplist.php?order=words&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"编辑推荐\", \"url\": \"/modules/article/toplist.php?order=toptime&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"新书榜\", \"url\": \"/modules/article/toplist.php?order=newhot&fullflag=1&page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
+    "ruleBookInfo": {
+        "author": "p.booktag>a@text",
+        "coverUrl": "div[class=\"bookcover hidden-xs\"]>img@src",
+        "intro": "p.bookintro@html",
+        "kind": "p.booktag>span:not(span:first-of-type)@text",
+        "lastChapter": "a.bookchapter@text",
+        "name": "h1.booktitle@text",
+        "wordCount": "p.booktag>span:first-of-type>script@html##(\\D*)##"
+    },
+    "ruleContent": {
+        "content": "<js>\n// 从 baseUrl 中提取书籍 ID 和章节 ID\nlet aid = baseUrl.match(/book(?:s)?\\/(\\d+)/)[1];\nlet cid = baseUrl.match(/\\/(\\d+)\\.html/)[1];\n\n// 直接发起请求获取包含校验变量的脚本内容并存储在 tokenScript 变量中\nlet tokenScript = java.ajax(`https://www.deqixs.co/scripts/chapter.js.php?aid=${aid}&cid=${cid}&referrer=${baseUrl}`);\n\n// 从返回的脚本内容中通过正则提取所需的校验参数\nlet token = tokenScript.match(/chapterToken\\s*=\\s*'([^']+)'/)[1];\nlet timestamp = tokenScript.match(/timestamp\\s*=\\s*(\\d+)/)[1];\nlet nonce = tokenScript.match(/nonce\\s*=\\s*'([^']+)'/)[1];\n\n// 构造用于最终正文接口请求的参数字符串\nlet params = `aid=${aid}&cid=${cid}&token=${token}&timestamp=${timestamp}&nonce=${nonce}`;\n\n// 定义包含编码、来源页面和 User-Agent 的请求配置对象\nlet options = {\n    \"charset\": \"gbk\",\n    \"headers\": {\n        \"Referer\": baseUrl,\n        \"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\",\n        \"X-Requested-With\": \"XMLHttpRequest\"\n    }\n};\n\n// 发起最终的异步请求并解析返回的 JSON 数据从中提取正文\nresult = JSON.parse(java.ajax(`https://www.deqixs.co/modules/article/ajax2.php?${params},${JSON.stringify(options)}`)).data.content;\n</js>",
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\n// 批量清理官方广告及推广干扰语\nlet officialRules = [/更新不易.+?看最新章节！/g, /更新不易.+?看最新无错章节！/g, /更新不易.+?最新小说章节！/g, /速读谷/g, /速.读.谷/g, /速 读 谷/g, /本章节未完.+?请订阅/g];\nofficialRules.forEach(rule => result = result.replace(rule, \"\"));\n\nresult;\n</js>",
+        "title": "li.active@text"
+    },
+    "ruleExplore": {
+        "author": "div.bookinfo>div:first-of-type@text##(作者：\\s?)##",
+        "bookList": "div.bookbox",
+        "bookUrl": "h4>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"h4>a\").attr(\"href\");\nlet bookId = bookUrl.match(/(\\d+)/)[1];\nlet imageBaseUrl = \"https://www.deqixs.co/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "div.update@textNodes",
+        "kind": "div.bookinfo>div:nth-of-type(3)@text",
+        "lastChapter": "div.cat>a@text",
+        "name": "h4>a@text",
+        "wordCount": "div.bookinfo>div:nth-of-type(2)>script@html##(\\D*)##"
+    },
+    "ruleSearch": {
+        "author": "div.bookinfo>div:first-of-type@text##(作者：\\s?)##",
+        "bookList": "div.bookbox",
+        "bookUrl": "h4>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"h4>a\").attr(\"href\");\nlet bookId = bookUrl.match(/(\\d+)/)[1];\nlet imageBaseUrl = \"https://www.deqixs.co/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
+        "intro": "div.update@textNodes",
+        "kind": "div.bookinfo>div:nth-of-type(2)@text",
+        "lastChapter": "div.cat>a@text",
+        "name": "h4>a@text"
+    },
+    "ruleToc": {
+        "chapterList": "div#list-chapterAll>dd",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href",
+        "nextTocUrl": "a.next@href"
+    },
+    "searchUrl": "https://www.deqixs.co/modules/article/search.php, {\n    \"method\": \"POST\",\n    \"body\": \"searchkey={{key}}&action=login&submit=\"\n}",
+    "weight": 93
+}

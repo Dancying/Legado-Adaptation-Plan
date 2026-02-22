@@ -1,0 +1,54 @@
+{
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，国外网络无法使用。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceGroup": "General",
+    "bookSourceName": "篱笆好文学",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.libahao.com/",
+    "concurrentRate": "1500",
+    "customOrder": 8,
+    "enabled": true,
+    "enabledCookieJar": true,
+    "enabledExplore": true,
+    "exploreUrl": "[\n    {\"title\": \"🍁🍁🍁分类列表🍁🍁🍁\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"篱笆好文学\", \"url\": \"/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/xuanhuan/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠修真\", \"url\": \"/xiuzhen/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市言情\", \"url\": \"/dushi/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史军事\", \"url\": \"/lishi/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"游戏竞技\", \"url\": \"/wangyou/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻灵异\", \"url\": \"/kehuan/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"女生言情\", \"url\": \"/nvpin/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"其他小说\", \"url\": \"/qita/\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
+    "ruleBookInfo": {
+        "author": "div.book-details>div:nth-of-type(2)@text##(作者：\\s?)##",
+        "coverUrl": "img.book-info-cover@src",
+        "intro": "div.book-info-description>p@html",
+        "kind": "div.book-details>div:nth-of-type(3)>a@text&&div.book-details>div:nth-of-type(5)@text##(\\d\\d:\\d\\d:\\d\\d)|(最后更新:\\s?)##",
+        "lastChapter": "div.book-details>div:nth-of-type(4)>a@text",
+        "name": "div.book-info-title@text"
+    },
+    "ruleContent": {
+        "content": "#chapterContent>p@html",
+        "nextContentUrl": "a[rel=\"next\"]@href\n<js>result = /\\d+_\\d\\d?\\.html/.test(result) ? result : null</js>",
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "div.page-header@text##(\\(\\d+?\\/\\d+?\\))##"
+    },
+    "ruleExplore": {
+        "author": "div.book-author@text",
+        "bookList": "div.book-list>a.book-item",
+        "bookUrl": "a.book-item@href",
+        "coverUrl": "img.book-cover@src",
+        "kind": "",
+        "lastChapter": "",
+        "name": "div.book-title@text",
+        "intro": "div.book-description@html"
+    },
+    "ruleSearch": {
+        "author": "div.book-author@text",
+        "bookList": "div.book-list>a",
+        "bookUrl": "a.book-item@href",
+        "checkKeyWord": "不许没收我的人籍",
+        "coverUrl": "img.book-cover@src",
+        "intro": "div.book-description@html",
+        "name": "div.book-title@text"
+    },
+    "ruleToc": {
+        "chapterList": "body>div:last-of-type>ul>li",
+        "chapterName": "a@text",
+        "chapterUrl": "a@href"
+    },
+    "searchUrl": "https://m.libahao.com/sou?wd={{key}}",
+    "weight": 97,
+    "header": "{\n  \"Accept-Language\": \"zh-CN,zh;q=0.9\",\n  \"Referer\": \"https://m.libahao.com/\",\n  \"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\"\n}"
+}

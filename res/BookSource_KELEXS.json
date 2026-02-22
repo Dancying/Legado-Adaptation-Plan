@@ -1,15 +1,15 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源有多个马甲站点，当前默认是可乐站点。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络可以正常使用，无需更换网络。\n✨ 本书源有多个马甲站点，当前默认是可乐站点。\n✨ 本书源如果请求太过于频繁，容易被网站封禁。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "General",
     "bookSourceName": "可乐小说",
     "bookSourceType": 0,
     "bookSourceUrl": "https://www.kelexs.com/",
-    "concurrentRate": "1500",
-    "customOrder": 25,
+    "concurrentRate": "2000",
+    "customOrder": 22,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
-    "exploreUrl": "[\n    {\"title\": \"🍰🍰🍰分类列表🍰🍰🍰\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻\", \"url\": \"/list-4-{{page}}/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"奇幻\", \"url\": \"/list-5-{{page}}/\"},\n    {\"title\": \"武侠\", \"url\": \"/list-6-{{page}}/\"},\n    {\"title\": \"仙侠\", \"url\": \"/list-7-{{page}}/\"},\n    {\"title\": \"都市\", \"url\": \"/list-8-{{page}}/\"},\n    {\"title\": \"军事\", \"url\": \"/list-9-{{page}}/\"},\n    {\"title\": \"历史\", \"url\": \"/list-10-{{page}}/\"},\n    {\"title\": \"游戏\", \"url\": \"/list-11-{{page}}/\"},\n    {\"title\": \"体育\", \"url\": \"/list-12-{{page}}/\"},\n    {\"title\": \"科幻\", \"url\": \"/list-13-{{page}}/\"},\n    {\"title\": \"诸天\", \"url\": \"/list-14-{{page}}/\"}\n]",
+    "exploreUrl": "[\n    {\"title\": \"🍰🍰🍰分类列表🍰🍰🍰\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"玄幻\", \"url\": \"/list-4-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"奇幻\", \"url\": \"/list-5-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠\", \"url\": \"/list-6-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"仙侠\", \"url\": \"/list-7-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市\", \"url\": \"/list-8-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"军事\", \"url\": \"/list-9-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史\", \"url\": \"/list-10-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"游戏\", \"url\": \"/list-11-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"体育\", \"url\": \"/list-12-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻\", \"url\": \"/list-13-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"诸天\", \"url\": \"/list-14-{{page}}/\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
     "ruleBookInfo": {
         "author": "div.info>dl>dd>a@text",
         "coverUrl": "div.pic>img@src",
@@ -22,7 +22,7 @@
     },
     "ruleContent": {
         "content": "div.content@html",
-        "nextContentUrl": "div[class=\"btnW font16\"]>a:last-of-type@href",
+        "nextContentUrl": "div[class=\"btnW font16\"]>a:last-of-type@href\n<js>result = /-\\d+-\\d\\d?\\.html/.test(result) ? result : null</js>",
         "replaceRegex": "<js>let s=new Set();result=result.replace(/.*(人人书库|renrenshuku|kelexs).*\\n?/gi,\"\").split(/\\n+/).filter(l=>{let t=l.trim();return t&&!s.has(t)&&s.add(t)}).join(\"\\n\")</js>",
         "title": "h1.title@text"
     },
@@ -40,7 +40,6 @@
         "author": "div[class=\"info\"]>dl:first-of-type>dd>a@text",
         "bookList": "div[class=\"list dList\"]>ul>li",
         "bookUrl": "div.pic@html\n<js>\nbookId = result.match(/upclick\\('(\\w+)'\\)/)[1];\nresult = `https://www.kelexs.com/book/${bookId}.html`;\n</js>",
-        "checkKeyWord": "闭嘴恶龙我不想再跟你带孩子了",
         "coverUrl": "div.pic>a>img@src",
         "intro": "div.intro@html",
         "kind": "div[class=\"info\"]>dl:nth-of-type(2)>dd>a@text",
@@ -54,5 +53,5 @@
         "nextTocUrl": "<js>\n(java.get(\"detailPageResult\").match(/data-p=\"(\\d+)\"/g) || []).slice(1).map(p => {\n    return `https://www.kelexs.com/index.php?action=loadChapterPage,${JSON.stringify({\n        method: \"POST\",\n        body: `id=${java.get(\"bookId\")}&page=${p.match(/\\d+/)[0]}`\n    })}`;\n})\n</js>"
     },
     "searchUrl": "<js>\nlet pwd = \"zc89s30ipHG2Dw\";\nlet encrypted = java.aesEncodeToBase64String(key, pwd.padEnd(32, '\\0'), \"AES/CBC/PKCS7Padding\", pwd.padEnd(16, '\\0'));\n`https://www.rrssk.com/k-${encodeURIComponent(encrypted)}.html`\n</js>",
-    "weight": 90
+    "weight": 89
 }

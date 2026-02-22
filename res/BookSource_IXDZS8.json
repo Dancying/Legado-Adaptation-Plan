@@ -5,11 +5,11 @@
     "bookSourceType": 0,
     "bookSourceUrl": "https://ixdzs8.com/",
     "concurrentRate": "1500",
-    "customOrder": 31,
+    "customOrder": 23,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
-    "exploreUrl": "[\n    {\"title\": \"🍒🍒🍒网站推荐🍒🍒🍒\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"首页推荐\", \"url\": \"/\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"完结作品\", \"url\": \"/end/?page={{page}}\"},\n    \n    {\"title\": \"🍎🍎🍎排行榜单🍎🍎🍎\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"日榜\", \"url\": \"/hot/day/?page={{page}}\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"月榜\", \"url\": \"/hot/month/?page={{page}}\"},\n    {\"title\": \"总榜\", \"url\": \"/hot/?page={{page}}\"},\n\n    {\"title\": \"🍅🍅🍅小说分类🍅🍅🍅\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻奇幻\", \"url\": \"/sort/1/index-0-0-0-{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"武侠小说\", \"url\": \"/sort/10/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"修真仙侠\", \"url\": \"/sort/2/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"都市青春\", \"url\": \"/sort/3/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"军事历史\", \"url\": \"/sort/4/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"网游竞技\", \"url\": \"/sort/5/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"科幻灵异\", \"url\": \"/sort/6/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"言情穿越\", \"url\": \"/sort/7/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"耽美同人\", \"url\": \"/sort/8/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"台言古言\", \"url\": \"/sort/9/index-0-0-0-{{page}}.html\"},\n    {\"title\": \"其他小说\", \"url\": \"/sort/0/index-0-0-0-{{page}}.html\"}\n]",
+    "exploreUrl": "[\n    {\"title\": \"🍒🍒🍒网站推荐🍒🍒🍒\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"首页推荐\", \"url\": \"/\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"完结作品\", \"url\": \"/end/?page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    \n    {\"title\": \"🍎🍎🍎排行榜单🍎🍎🍎\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"日榜\", \"url\": \"/hot/day/?page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月榜\", \"url\": \"/hot/month/?page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总榜\", \"url\": \"/hot/?page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n\n    {\"title\": \"🍅🍅🍅小说分类🍅🍅🍅\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"玄幻奇幻\", \"url\": \"/sort/1/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠小说\", \"url\": \"/sort/10/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"修真仙侠\", \"url\": \"/sort/2/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市青春\", \"url\": \"/sort/3/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"军事历史\", \"url\": \"/sort/4/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"网游竞技\", \"url\": \"/sort/5/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻灵异\", \"url\": \"/sort/6/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"言情穿越\", \"url\": \"/sort/7/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"耽美同人\", \"url\": \"/sort/8/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"台言古言\", \"url\": \"/sort/9/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"其他小说\", \"url\": \"/sort/0/index-0-0-0-{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
     "header": "{\"User-Agent\": \"Mozilla/5.0 (Android 7) Mobile\"}",
     "ruleBookInfo": {
         "author": "a.bauthor@text",
@@ -19,12 +19,13 @@
         "kind": "a.nsort@text&&span.lz@text&&div.n-text>p:last-of-type@text##(更新:?|\\s\\d+:\\d+:\\d+)##",
         "lastChapter": "div.n-text>p>a[href$=\".html\"]@text##(^\\d+\\.?)##",
         "name": "div.n-text>h1@text",
-        "tocUrl": "<js>java.put(\"bookUrl\",baseUrl)</js>\nhttps://ixdzs8.com/novel/clist/,{\n    \"method\": \"POST\",\n    \"body\": \"bid={{baseUrl.split(\"/\")[4]}}\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\"}\n}",
+        "tocUrl": "<js>java.put(\"bookUrl\",baseUrl)</js>\nhttps://ixdzs8.com/novel/clist/,{\n    \"method\": \"POST\",\n    \"body\": \"bid={{baseUrl.split(\"/\")[4]}}\"\n}",
         "wordCount": "span.nsize@text"
     },
     "ruleContent": {
         "content": "<js>\nif (result.includes(\"正在验证浏览器\")) {\n    let freshUrl = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${Date.now()}`;\n    result = java.webView(null, freshUrl, null);\n} else { result }\n</js>\narticle.page-content>section>p:not(.abg)@html",
-        "replaceRegex": "##(\\s*\\d*\\.?{{title.split(\" \")[0]}}\\S*{{title.substr(-1)}}\\S*\\s+|\\s*\\(?本章完\\)?|\\s*更新\\S*\\d+-\\d+-\\d+\\s+)##"
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@text"
     },
     "ruleSearch": {
         "author": "span.bauthor>a@text",
@@ -44,5 +45,5 @@
         "chapterUrl": "{{java.get(\"bookUrl\")}}p{{$.ordernum}}.html"
     },
     "searchUrl": "/bsearch?q={{key}}&page={{page}}",
-    "weight": 85
+    "weight": 88
 }

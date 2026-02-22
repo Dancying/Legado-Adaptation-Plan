@@ -1,15 +1,15 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络无法搜索，需要切换网络使用。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络无法使用，需要国外网络使用。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "VPN",
     "bookSourceName": "飘天文学",
     "bookSourceType": 0,
     "bookSourceUrl": "https://www.piaotia.com/",
     "concurrentRate": "1500",
-    "customOrder": 12,
+    "customOrder": 7,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
-    "exploreUrl": "[\n    {\"title\": \"☘️☘️☘️网站分类☘️☘️☘️\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/booksort1/0/{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n    {\"title\": \"武侠修真\", \"url\": \"/booksort2/0/{{page}}.html\"},\n    {\"title\": \"都市言情\", \"url\": \"/booksort3/0/{{page}}.html\"},\n    {\"title\": \"历史军事\", \"url\": \"/booksort4/0/{{page}}.html\"},\n    {\"title\": \"网游竞技\", \"url\": \"/booksort5/0/{{page}}.html\"},\n    {\"title\": \"科幻小说\", \"url\": \"/booksort6/0/{{page}}.html\"},\n    {\"title\": \"恐怖灵异\", \"url\": \"/booksort7/0/{{page}}.html\"},\n    {\"title\": \"同人漫画\", \"url\": \"/booksort8/0/{{page}}.html\"},\n    {\"title\": \"其他类型\", \"url\": \"/booksort9/0/{{page}}.html\"},\n    {\"title\": \"全本小说\", \"url\": \"/quanben/index.html?page={{page}}\"},\n    {\"title\": \"全部文章\", \"url\": \"/booksort/0/{{page}}.html\"}\n]",
+    "exploreUrl": "[\n    {\"title\": \"☘️☘️☘️网站分类☘️☘️☘️\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"玄幻魔法\", \"url\": \"/booksort1/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠修真\", \"url\": \"/booksort2/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"都市言情\", \"url\": \"/booksort3/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史军事\", \"url\": \"/booksort4/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"网游竞技\", \"url\": \"/booksort5/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻小说\", \"url\": \"/booksort6/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"恐怖灵异\", \"url\": \"/booksort7/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"同人漫画\", \"url\": \"/booksort8/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"其他类型\", \"url\": \"/booksort9/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"全本小说\", \"url\": \"/quanben/index.html?page={{page}}\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"全部文章\", \"url\": \"/booksort/0/{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
     "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\"}",
     "ruleBookInfo": {
         "author": "{{result.match(/作\\S+\\s者：(\\S+)<\\/td>/)[1]}}",
@@ -23,7 +23,8 @@
     },
     "ruleContent": {
         "content": "body@textNodes",
-        "replaceRegex": "<js>\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/,\"\").replace(/\\s*[（|(][)|）]\\s*/,\"\");\n\nif (title.length < 5) { result = result.replace(new RegExp(`\\\\s+?${title}\\\\n`),\"\") } \nelse { result = result.replace(new RegExp(`\\\\s+?${title.substr(0,title.length*2/3)}.*\\\\n`),\"\") }\n\nresult.replace(new RegExp(`\\\\s*?第\\\\S+?章.{0,${title.length}}\\\\n`),\"\");\n</js>"
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "h1@textNodes"
     },
     "ruleExplore": {
         "author": "#centerm>#content>table.grid>tbody>tr>td:nth-of-type(3)@text",
@@ -54,5 +55,5 @@
         "chapterUrl": "a@href"
     },
     "searchUrl": "<js>cookie.removeCookie(baseUrl)</js>\n/modules/article/search.php, {\n    \"charset\": \"gbk\",\n    \"method\": \"POST\",\n    \"body\": \"searchtype=articlename&searchkey={{key}}&action=login&submit=%26%23160%3B%CB%D1%26%23160%3B%26%23160%3B%CB%F7%26%23160%3B&page={{page}}\",\n    \"headers\": {\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}\n}",
-    "weight": 95
+    "weight": 97
 }

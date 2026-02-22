@@ -1,15 +1,15 @@
 {
-    "bookSourceComment": "✨ 本书源国内网络无法搜索，需要切换网络使用。\n✨ 本书源正文保留繁体，阅读界面可以转为简体。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
+    "bookSourceComment": "✨ 本书源国内网络无法使用，需要国外网络使用。\n\n✒️ 书源作者： Dancying\n🖥️ 项目主页： https://api.dancying.cn/legado",
     "bookSourceGroup": "VPN",
     "bookSourceName": "思兔阅读",
     "bookSourceType": 0,
     "bookSourceUrl": "https://sto55.com/",
     "concurrentRate": "1500",
-    "customOrder": 24,
+    "customOrder": 13,
     "enabled": true,
     "enabledCookieJar": true,
     "enabledExplore": true,
-    "exploreUrl": "[\n  {\"title\": \"🍹🍹🍹书库页面🍹🍹🍹\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n  {\"title\": \"玄幻奇幻\", \"url\": \"/class_1_{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n  {\"title\": \"武侠仙侠\", \"url\": \"/class_2_{{page}}.html\"},\n  {\"title\": \"现代都市\", \"url\": \"/class_3_{{page}}.html\"},\n  {\"title\": \"历史军事\", \"url\": \"/class_4_{{page}}.html\"},\n  {\"title\": \"科幻小说\", \"url\": \"/class_5_{{page}}.html\"},\n  {\"title\": \"游戏竞技\", \"url\": \"/class_6_{{page}}.html\"},\n  {\"title\": \"恐怖灵异\", \"url\": \"/class_7_{{page}}.html\"},\n  {\"title\": \"言情小说\", \"url\": \"/class_8_{{page}}.html\"},\n  {\"title\": \"其他类型\", \"url\": \"/class_9_{{page}}.html\"},\n\n  {\"title\": \"🍸🍸🍸排行页面🍸🍸🍸\", \"style\": {\"layout_flexGrow\": 1, \"layout_wrapBefore\": true}},\n  {\"title\": \"总排行榜\", \"url\": \"/top/allvisit_{{page}}.html\", \"style\": {\"layout_wrapBefore\": true}},\n  {\"title\": \"总推荐榜\", \"url\": \"/top/allvote_{{page}}.html\"},\n  {\"title\": \"月排行榜\", \"url\": \"/top/monthvisit_{{page}}.html\"},\n  {\"title\": \"月推荐榜\", \"url\": \"/top/monthvote_{{page}}.html\"},\n  {\"title\": \"周排行榜\", \"url\": \"/top/weekvisit_{{page}}.html\"},\n  {\"title\": \"周推荐榜\", \"url\": \"/top/weekvote_{{page}}.html\"},\n  {\"title\": \"最新入库\", \"url\": \"/top/postdate_{{page}}.html\"},\n  {\"title\": \"最近更新\", \"url\": \"/top/lastupdate_{{page}}.html\"},\n  {\"title\": \"最近完结\", \"url\": \"/full_{{page}}.html\"},\n  {\"title\": \"总收藏榜\", \"url\": \"/top/goodnum_{{page}}.html\"}\n]",
+    "exploreUrl": "[\n    {\"title\": \"🍹🍹🍹书库页面🍹🍹🍹\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"玄幻奇幻\", \"url\": \"/class_1_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"武侠仙侠\", \"url\": \"/class_2_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"现代都市\", \"url\": \"/class_3_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"历史军事\", \"url\": \"/class_4_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"科幻小说\", \"url\": \"/class_5_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"游戏竞技\", \"url\": \"/class_6_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"恐怖灵异\", \"url\": \"/class_7_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"言情小说\", \"url\": \"/class_8_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"其他类型\", \"url\": \"/class_9_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n\n    {\"title\": \"🍸🍸🍸排行页面🍸🍸🍸\", \"style\": {\"layout_flexBasisPercent\": 1}},\n    {\"title\": \"总排行榜\", \"url\": \"/top/allvisit_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总推荐榜\", \"url\": \"/top/allvote_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月排行榜\", \"url\": \"/top/monthvisit_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"月推荐榜\", \"url\": \"/top/monthvote_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"周排行榜\", \"url\": \"/top/weekvisit_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"周推荐榜\", \"url\": \"/top/weekvote_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最新入库\", \"url\": \"/top/postdate_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最近更新\", \"url\": \"/top/lastupdate_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"最近完结\", \"url\": \"/full_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}},\n    {\"title\": \"总收藏榜\", \"url\": \"/top/goodnum_{{page}}.html\", \"style\": {\"layout_flexBasisPercent\": 0.29}}\n]",
     "ruleBookInfo": {
         "author": "p.booktag>a.red@text",
         "coverUrl": "img.thumbnail@src",
@@ -22,12 +22,15 @@
         "wordCount": "p.booktag>span:nth-of-type(2)@text##字##"
     },
     "ruleContent": {
-        "content": "div[class=\"readcotent bbb font-normal\"]@html"
+        "content": "<js>java.t2s(result)</js>\ndiv[class=\"readcotent bbb font-normal\"]@html",
+        "replaceRegex": "<js>\n// 转义标题变量中的特殊字符，确保正则安全\nlet safeTitle = title.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n\n// 根据标题长度动态匹配并清理正文中的重复标题行\nif (title.length < 5) {\n    result = result.replace(new RegExp(`^\\\\s*${safeTitle}\\\\s*\\\\n`, \"i\"), \"\");\n} else {\n    let shortTitle = safeTitle.substr(0, Math.floor(safeTitle.length * 2 / 3));\n    result = result.replace(new RegExp(`^\\\\s*${shortTitle}.*\\\\n`, \"i\"), \"\");\n}\n\n// 匹配并移除以“第X章”开头的特征行，防止章节名残留\nresult = result.replace(new RegExp(`^\\\\s*第\\\\S+?章.{0,${title.length}}\\\\n`, \"i\"), \"\");\n\n// 匹配包含 sto55 变体、Emoji 干扰及强制英文点号后缀的单行广告并整行切除\nresult = result.replace(/^\\s*.*[sⓢ𝒔𝒔ʂṡｓ₴Ｓ🅂𝕊].{0,5}[tⓣ𝒕𝒕₮ƭƮẗｔ𝓣т🅃].{0,5}[oօⓞ𝒐𝒐Ø𝐨ơＯöｏ🅄].*[5⑤𝟱５➎𝟝５].*[5⑤➎𝟱５𝟝５].*?(?:[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]|[^a-zA-Z0-9])*?[.．].*?[cⓒ𝒄𝒄Ｃℂ₵ƈƈċｃ🄲].{0,5}[oⓞ𝒐օ𝒐𝑜𝓸ơØöｏ🄾].{0,5}[mｍⓜ𝒎𝗆м₥ʍṁ𝒎ɱｍ🄼].*\\n?/im, \"\");\n\n// 清理文末各种括号格式的“本章完”字样\nresult = result.replace(/\\s*[（|(]本章完[)|）]\\s*/g, \"\");\n\nresult;\n</js>",
+        "title": "<js>java.t2s(result)</js>\nh1@text"
     },
     "ruleExplore": {
         "author": "div.bookinfo>div:first-of-type@text##(\\S+：)##",
         "bookList": "<js>java.t2s(result)</js>\ndiv#fengtui>div",
         "bookUrl": "h4.bookname>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"h4.bookname>a\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)/)[1];\nlet imageBaseUrl = \"https://sto55.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "intro": "div.update@ownText",
         "lastChapter": "div.cat>a@text",
         "name": "h4.bookname>a@text",
@@ -37,6 +40,7 @@
         "author": "div.author>a@text",
         "bookList": "<js>java.t2s(result)</js>\ndiv.keywords>div",
         "bookUrl": "div.bookname>a@href",
+        "coverUrl": "<js>\nlet bookUrl = result.select(\"div.bookname>a\").attr(\"href\");\nlet bookId = bookUrl.match(/\\/(\\d+)/)[1];\nlet imageBaseUrl = \"https://sto55.com/files/article/image/\";\nlet imageDetailUrl = `${parseInt(bookId / 1000)}/${bookId}/${bookId}s.jpg`;\nimageBaseUrl + imageDetailUrl;\n</js>",
         "intro": "div.update@ownText",
         "lastChapter": "div.cat>a@text",
         "name": "div.bookname>a@text",
@@ -48,5 +52,5 @@
         "chapterUrl": "a@href"
     },
     "searchUrl": "/search/{{key}}/{{page}}.html",
-    "weight": 90
+    "weight": 94
 }
